@@ -1,0 +1,57 @@
+table {
+  width: 970px;
+  margin-top: 20px;
+  font-weight: normal;
+  border: none;
+}
+
+th {
+  padding: 3px;
+  border-left: 0; border-right: 0; border-top: 0; border-bottom: 0;
+}
+
+td {
+  border-bottom: 1px solid #C4C4C4;
+  border-left: 0; border-right: 0; border-top: 0;
+  padding: 10px;
+}
+
+img {
+  margin-right: 8px;
+}
+
+.tableTitle {
+  background: #48A560;
+  color: #FFFFFF;
+  font-size: 15px;
+}
+
+.postOrder {
+  text-align: center;
+  font-size: 15px;
+  width: 9%;
+}
+
+.postTitle {
+  font-size: 15px;
+  text-align: left;
+  padding-left: 10px;
+  width: 50%;
+}
+
+.postInfo {
+  text-align: center;
+  font-size: 12px;
+  width: 7%;
+}
+
+.writer {
+  text-align: left;
+  padding-left: 10px;
+  font-size: 12px;
+  width: 20%;
+}
+
+.smallImg {
+  width: 15px;
+}

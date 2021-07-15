@@ -9,7 +9,7 @@ const SortBar = styled.div`
 
 const SortOpt = styled.button`
   display: inline-flex;
-  font-size: 15px;
+  font-size: 13px;
   background-color: transparent;
   border-top: none; border-left: none; border-right: none;
   border-bottom: 1px solid #000000;
@@ -19,8 +19,8 @@ const SortOpt = styled.button`
 
 const SearchBox = styled.div`
   display: inline-flex;
-  border: 2.5px solid #C4C4C4;
-  border-radius: 5px;
+  font-size: 12px;
+  border: 2.5px solid #C4C4C4; border-radius: 5px;
   height: 25px;
 `
 
