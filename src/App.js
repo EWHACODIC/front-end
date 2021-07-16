@@ -1,11 +1,10 @@
 import './App.css';
+import TechList from './TechList';
 
 function App() {
   return (
-    <div className="App">
-      <header className="header">
-        <p>메인화면</p>
-      </header>
+    <div>
+      <TechList />
     </div>
   );
 }

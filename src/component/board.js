@@ -10,8 +10,8 @@ const Tag = styled.div`
   display:inline-flex;
   color: white; text-align: center; font-size: 10px;
   background: #FDCF47; border-radius: 5px;
-  padding-left: 8px; padding-right: 8px;
-  padding-top: 3px; padding-bottom: 3px;
+  padding-left: 5px; padding-right: 5px;
+  padding-top: 1px; padding-bottom: 1.5px;
   margin-right: 5px; margin-bottom: 3px;
 `
 

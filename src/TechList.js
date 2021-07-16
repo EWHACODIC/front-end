@@ -15,7 +15,7 @@ const Title = styled.div`
 const postList = [
     {
         "id": 1,
-        "title": "title",
+        "title": "코딩코딩질문질문코딩코딩질문질문",
         "tag": ["react", "javascript"],
         "view": 8,
         "recommend": 0,
