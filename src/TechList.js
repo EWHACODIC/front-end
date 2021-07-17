@@ -8,7 +8,7 @@ const Title = styled.div`
   flex-direction: row;
   font-size: 24px;
   font-weight: bold;
-  border-bottom: 4px solid #49A862;
+  border-bottom: 3px solid #49A862;
   margin-right: 375px;
 `
 

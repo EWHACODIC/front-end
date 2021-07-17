@@ -33,7 +33,6 @@ const Input = styled.input.attrs({
     }
 `
 
-
 function SubBar() {
   return (
     <SortBar>

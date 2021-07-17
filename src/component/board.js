@@ -24,7 +24,7 @@ function Board(props) {
     <div>
       <table>
         <thead>
-          <tr className='tableTitle'>
+          <tr>
             <th>번호</th>
             <th>제목</th>
             <th>댓글</th>

@@ -2,43 +2,37 @@ table {
   width: 970px;
   margin-top: 20px;
   font-weight: normal;
-  border: none;
+  border-collapse: collapse;
 }
 
 th {
   padding: 3px;
-  border-left: 0; border-right: 0; border-top: 0; border-bottom: 0;
+  background-color: #48A560;
+  color: #FFFFFF;
+  font-size: 13px;
 }
 
 td {
-  border-bottom: 1px solid #C4C4C4;
-  border-left: 0; border-right: 0; border-top: 0;
   padding: 10px;
+  border-bottom: 1px solid #C4C4C4;
+  border-right: none;
 }
 
 img {
   margin-right: 8px;
 }
 
-.tableTitle {
-  background: #48A560;
-  color: #FFFFFF;
-  font-size: 13px;
-  padding: 1px;
-}
-
 .postOrder {
   text-align: center;
   font-size: 15px;
-  width: 9%;
+  width: 10%;
 }
 
 .postTitle {
-  font-size: 15px;
+  font-size: 14px; font-weight: bold;
   text-align: left;
   padding-left: 10px;
   width: 50%;
-  font-weight: bold;
 }
 
 .postInfo {
@@ -49,9 +43,9 @@ img {
 
 .writer {
   text-align: left;
-  padding-left: 10px;
-  font-size: 12px;
-  width: 20%;
+  padding-left: 18px;
+  font-size: 11px;
+  width: 18%;
 }
 
 .smallImg {

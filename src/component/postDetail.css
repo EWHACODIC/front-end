@@ -1,0 +1,18 @@
+div {
+  font-size: 12px;
+}
+
+.index {
+  display: inline-flex;
+  margin-left: 5px; margin-right: 8px;
+  font-size: 14px;
+}
+
+.smallImg {
+  margin-left: 25px;
+  width: 15px;
+}
+
+.bigImg {
+  width: 20px;
+}
