@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import SubBar from './component/subBar';
 import PostDetail from './component/postDetail';
+import CommentList from './component/commentList';
 
 const Title = styled.div`
   display: inline-flex;
@@ -52,6 +53,7 @@ function TechPost() {
       <Title>TECH&JOBs</Title>
       <SubBar />
       <PostDetail data={data}/>
+      <CommentList />
     </div>
   );
 }

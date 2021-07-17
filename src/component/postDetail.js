@@ -5,6 +5,7 @@ import commentImg from "../assets/comment.svg";
 import heartImg from "../assets/heart.svg";
 import viewImg from "../assets/view.svg";
 import bigHeartImg from "../assets/bigHeart.svg"
+import UserGrayImg from "../assets/userGray.svg";
 
 const TopBar = styled.div`
   width: 970px;
@@ -77,7 +78,7 @@ function PostDetail() {
               <Tag># react</Tag> <Tag># react</Tag>
               <PostTitle>코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문</PostTitle>
               <PostInfo>
-                <UserImg></UserImg>
+                <img src = {UserGrayImg} />
                 <div style={{'margin-right': '630px'}}>
                   <User>윤채원</User>
                   <Date>2021.06.05 / 00:14:56 작성</Date>
