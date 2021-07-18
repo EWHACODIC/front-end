@@ -16,7 +16,7 @@ front-end
 
 ### 2. 선택한 기술 스택 및 라이브러리
 
-React.js
+[![React](https://img.shields.io/badge/React-61DAFB?style=round-square&logo=React&logoColor=black)](https://ko.reactjs.org/)
 
 ### 3. 팀원 소개와 역할 분담
 
@@ -24,6 +24,3 @@ React.js
 - 김은지 - 회원가입 및 마이페이지 구현
 - 김혜린 - header/footer/왼쪽 상단 로그인 정보/관심태그 구현
 
-### 4. 개발 환경
-[![React](https://img.shields.io/badge/React-61DAFB?style=round-square&logo=React&logoColor=black)](https://ko.reactjs.org/)
-[![Spring](https://img.shields.io/badge/Spring-6DB33F?style=round-square&logo=Spring&logoColor=white)](https://spring.io/)
