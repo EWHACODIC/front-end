@@ -1,5 +1,5 @@
 import React from "react";
-import './board.css'
+import '../style/board.css'
 import styled from "styled-components";
 import commentImg from "../assets/comment.svg";
 import heartImg from "../assets/heart.svg";

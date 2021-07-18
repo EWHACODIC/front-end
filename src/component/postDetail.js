@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import './postDetail.css';
+import '../style/postDetail.css';
 import commentImg from "../assets/comment.svg";
 import heartImg from "../assets/heart.svg";
 import viewImg from "../assets/view.svg";
