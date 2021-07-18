@@ -1,6 +1,8 @@
 ![image](https://user-images.githubusercontent.com/78336351/126066698-59b535c7-78cd-431e-b302-1011bf0dd5cb.png)
 
-### 1. 프로젝트 폴더 구조
+### # EWHA CODIC FRONT
+
+### 1. 대시보드
 
 ```
 front-end
