@@ -11,9 +11,11 @@ const Wrapper = styled.div`
 const Login = () => {
     return (
         <Wrapper>
+            <hr size='3' color='black'></hr>
             <img src={Lock}></img><a>LOGIN</a>
             <Input name="ID"></Input>
             <Input name="PASSWORD"></Input>
+            <hr size='3' color='black'></hr>
         </Wrapper>
     )
 }

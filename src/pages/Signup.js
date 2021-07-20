@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Input from "../component/Input"
-import Login from "../component/Login"
+import { useForm } from "react-hook-form";
+import '../style/Signup.css';
 
 const Wrapper = styled.div`
     text-align: left;
@@ -11,24 +11,64 @@ const Wrapper = styled.div`
 `
 
 const Button = styled.button`
-    color: #48A560, 100%;
+    background: #48A560;
+    border-radius: 5px;
+    width: -webkit-fill-available;
+    color: white;
+    border: none;
+    font-size: 20px;
+    line-height: 30px;
+    margin-top: 20vh;
+    margin-bottom: 15px;
+
+`
+
+const InputBox = styled.input`
+    border: 2.5px solid #C4C4C4;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size:20px;
+    line-height: 2vw;
+    display: block;
+    margin-top: 10px;
 `
 
 const Signup = () => {
+
+    const { register, handleSubmit } = useForm();
+    const onSubmit = data => console.log(data);
+
     return (
         <div>
-            <Login></Login>
             <Wrapper>
-                <h1 style={{fontSize:"27px"}}>회원가입</h1>
-                <a>이메일로 가입하기</a>
-                <Input name="아이디" width="40vw"></Input>
-                <span>아이디는 영문소문자와 숫자의 조합으로 8~16자</span>
-                <Input name="비밀 번호" width="40vw"></Input>
-                <Input name="비밀 번호 확인" width="40vw"></Input>
-                <Input name="이름" width="20vw"></Input>
-                <Input name="유레카 이메일" width="15vw"></Input><span>ewhain.net</span>
-                <Input name="깃허브 아이디" width="40vw"></Input>
-                <Button>아래 약관을 동의하며 계정 생성</Button>
+                <h1 className='title'>회원가입</h1>
+                <hr size='10' color='#49A862'></hr>
+                <a className='sub_title'>이메일로 가입하기</a>
+                <form onSubmit={handleSubmit(onSubmit)} className='form'>
+                    <InputBox
+                        {...register('userid', { required: true })}
+                        placeholder='아이디' style= {{ width: '40vw' }} />
+                    <a>아이디는 영문소문자와 숫자의 조합으로 8~16자</a>
+                    <InputBox
+                        {...register('password', { required: true })}
+                        placeholder='비밀 번호' style= {{ width: '40vw' }} />
+                    <InputBox
+                        {...register('password_2', { required: true })}
+                        placeholder='비밀 번호 확인' style= {{ width: '40vw' }} />
+                    <a>비밀번호는 영문소문자와 숫자의 조합으로 8-16자</a><br></br>
+                    <InputBox
+                        {...register('email', { required: true })}
+                        placeholder='유레카 이메일' style= {{ width: '15vw', display: 'inline-block' }} />
+                    <span> @ ewhain.net</span>
+                    <InputBox
+                        {...register('github', { required: true })}
+                        placeholder='깃허브 아이디' style= {{ width: '40vw' }} />
+                    <Button type="submit">아래 약관을 동의하며 계정 생성</Button>
+                    <div className="info">
+                        <span>회원가입 약관</span>
+                        <span>개인정보취급방침</span>
+                    </div>
+                </form>
             </Wrapper>
         </div>
     )
