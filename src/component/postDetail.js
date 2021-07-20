@@ -52,7 +52,7 @@ const SortBar = styled.div`
 const MiddleBar = styled.div`
   width: 970px;
   height: 2px;
-  background: #C4C4C4;
+  background: #666666;
   margin-top: 10px; margin-bottom: 20px;
 `
 const Content = styled.div`

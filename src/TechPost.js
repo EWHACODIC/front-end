@@ -3,6 +3,7 @@ import styled from "styled-components";
 import SubBar from './component/subBar';
 import PostDetail from './component/postDetail';
 import CommentList from './component/commentList';
+import CommentPost from "./component/commentPost";
 
 const Title = styled.div`
   display: inline-flex;
@@ -54,6 +55,7 @@ function TechPost() {
       <SubBar />
       <PostDetail data={data}/>
       <CommentList />
+      <CommentPost />
     </div>
   );
 }
