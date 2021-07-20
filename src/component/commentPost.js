@@ -24,6 +24,24 @@ const User = styled.div`
   font-size: 14px;
   margin: 10px;
 `
+const CommentInput = styled.textarea.attrs({
+    placeholder: "댓글을 남겨보세요.",
+    placeholderTextColor: "#C4C4C4"
+})`
+  display: flex;
+  width: 800px; height: 60px;
+  border: none; resize: none;
+  margin-left: 8px;
+  &:focus {outline: none};
+`
+const RegisterBtn = styled.button `
+  width: 60px; height: 40px;
+  margin-right: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none; border-radius: 5px;
+  background-color: #C9E492;
+`
 const MiddleBar = styled.div`
   width: 970px;
   height: 2px;
@@ -39,6 +57,10 @@ function CommentPost() {
       </CommentHeader>
       <CommentBox>
         <User>김수아</User>
+        <CommentInput />
+        <div style={{"display":"flex","justify-content":"flex-end", "width":"900px"}}>
+          <RegisterBtn>등록</RegisterBtn>
+        </div>
       </CommentBox>
       <MiddleBar />
     </div>

@@ -30,11 +30,6 @@ const PostInfo = styled.div`
   display: inline-flex;
   margin-top: 10px; margin-left: 5px;
 `
-const UserImg = styled.div`
-  background: #C4C4C4;
-  width: 33px; border-radius: 20px;
-  margin-right: 8px;
-`
 const User = styled.div`
   display: flex;
   font-size: 14px;
@@ -63,7 +58,8 @@ const Content = styled.div`
 `
 const HeartBtn = styled.button`
   display: inline-flex;
-  font-size: 14px; color: #C4C4C4;
+  font-size: 14px;
+  color: "#C4C4C4";
   background-color: transparent;
   border: none;
   margin-top: 10px; margin-bottom: 5px;
