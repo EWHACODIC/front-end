@@ -65,7 +65,7 @@ const HeartBtn = styled.button`
   margin-top: 10px; margin-bottom: 5px;
   margin-left: 900px;
 `
-function PostDetail() {
+function PostDetail(props) {
   return (
     <div>
             <div>

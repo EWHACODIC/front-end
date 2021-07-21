@@ -34,7 +34,10 @@ const CommentInput = styled.textarea.attrs({
   margin-left: 8px;
   &:focus {outline: none};
 `
-const RegisterBtn = styled.button `
+const RegisterBtn = styled.button.attrs({
+    type: "submit"
+})
+`
   width: 60px; height: 40px;
   margin-right: 10px;
   font-size: 14px;
@@ -57,10 +60,12 @@ function CommentPost() {
       </CommentHeader>
       <CommentBox>
         <User>김수아</User>
-        <CommentInput />
-        <div style={{"display":"flex","justify-content":"flex-end", "width":"900px"}}>
-          <RegisterBtn>등록</RegisterBtn>
-        </div>
+        <form>
+          <CommentInput />
+          <div style={{"display":"flex","justify-content":"flex-end", "width":"900px"}}>
+            <RegisterBtn>등록</RegisterBtn>
+          </div>
+        </form>
       </CommentBox>
       <MiddleBar />
     </div>
