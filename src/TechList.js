@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import SubBar from './component/subBar';
 import Board from './component/board';
+import {response} from './boardListEx';
 
 const Title = styled.div`
   display: inline-flex;
@@ -12,52 +13,29 @@ const Title = styled.div`
   margin-right: 375px;
 `
 
-const postList = [
-    {
-        "id": 1,
-        "title": "코딩코딩질문질문코딩코딩질문질문",
-        "tag": ["react", "javascript"],
-        "view": 8,
-        "recommend": 0,
-        "commentNum": 2,
-        "userCode": "윤채원",
-        "createDate": "2018-11-12T13:00:00",
-        "modifiedDate": "2018-11-12T13:00:00"
-    },
-    {
-        "id": 2,
-        "title": "title2222",
-        "tag": ["태그"],
-        "view": 6,
-        "recommend": 0,
-        "commentNum": 0,
-        "userCode": 1234,
-        "createDate": "2018-11-12T13:00:00",
-        "modifiedDate": "2018-11-12T13:00:00"
-    },
-    {
-        "id": 3,
-        "title": "title2222",
-        "tag": ["태그"],
-        "view": 2,
-        "recommend": 0,
-        "commentNum": 0,
-        "userCode": 1234,
-        "createDate": "2018-11-12T13:00:00",
-        "modifiedDate": "2018-11-12T13:00:00"
-    }
-]
-
 function TechList() {
-  const [dataList, setDataList ] = useState([]);
+  const [postList, setPostList] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(12);
   useEffect(() => {
-      setDataList(postList);
+      setLoading(true);
+      setPostList(response);
+      setLoading(false);
   }, [])
+  console.log(postList)
+  const indexOfLast = currentPage * postsPerPage;
+  const indexOfFirst = indexOfLast - postsPerPage;
+  function currentPosts(tmp) {
+    let currentPosts = 0;
+    currentPosts = tmp.slice(indexOfFirst, indexOfLast);
+    return currentPosts;
+    }
   return (
     <div>
       <Title>TECH&JOBs</Title>
       <SubBar />
-      <Board dataList={dataList}/>
+      <Board postList={postList} loading={loading} />
     </div>
   );
 }

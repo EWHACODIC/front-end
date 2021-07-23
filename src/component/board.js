@@ -19,9 +19,12 @@ const LineBreak = styled.div`
   display: flex;
 `
 
-function Board(props) {
+function Board({postList, loading}) {
   return (
     <div>
+      { loading &&
+      <div> loading... </div>
+      }
       <table>
         <thead>
           <tr>
@@ -35,13 +38,13 @@ function Board(props) {
         </thead>
         <tbody>
           {
-            props.dataList ? props.dataList.map((item, index) => {
+            postList ? postList.map((item, index) => {
               return (
                 <tr key = {index}>
                   <td className='postOrder'>{ item.id }</td>
                   <td className='postTitle'>
                     {item.tag.length === 2 ? <div><Tag># {item.tag[0]}</Tag><Tag># {item.tag[1]}</Tag></div>:<Tag># {item.tag}</Tag>}
-                    <LineBreak>{ item.title }</LineBreak>
+                    <div className='title'>{ item.title }</div>
                   </td>
                   <td className='postInfo'>
                     <img src = {commentImg} className='smallImg' />{ item.commentNum }</td>

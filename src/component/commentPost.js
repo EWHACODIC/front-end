@@ -51,25 +51,27 @@ const MiddleBar = styled.div`
   background: #666666;
   margin-top: 20px; margin-bottom: 20px;
 `
-function CommentPost() {
-  return (
-    <div>
-      <CommentHeader>
-      <img src = {CommentImg} style={{"width": "25px"}} />
-      <CommentTitle>댓글쓰기</CommentTitle>
-      </CommentHeader>
-      <CommentBox>
-        <User>김수아</User>
-        <form>
-          <CommentInput />
-          <div style={{"display":"flex","justify-content":"flex-end", "width":"900px"}}>
-            <RegisterBtn>등록</RegisterBtn>
-          </div>
-        </form>
-      </CommentBox>
-      <MiddleBar />
-    </div>
- );
+class CommentPost extends React.Component{
+  render() {
+    return (
+      <div>
+        <CommentHeader>
+          <img src={CommentImg} style={{"width": "25px"}}/>
+          <CommentTitle>댓글쓰기</CommentTitle>
+        </CommentHeader>
+        <CommentBox>
+          <User>김수아</User>
+          <form>
+            <CommentInput/>
+            <div style={{"display": "flex", "justify-content": "flex-end", "width": "900px"}}>
+              <RegisterBtn>등록</RegisterBtn>
+            </div>
+          </form>
+        </CommentBox>
+        <MiddleBar/>
+      </div>
+    );
+  }
 }
 
 export default CommentPost;

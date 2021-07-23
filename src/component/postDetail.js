@@ -1,10 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import '../style/postDetail.css';
 import commentImg from "../assets/comment.svg";
 import heartImg from "../assets/heart.svg";
 import viewImg from "../assets/view.svg";
-import bigHeartImg from "../assets/bigHeart.svg"
 import UserGrayImg from "../assets/userGray.svg";
 
 const TopBar = styled.div`
@@ -57,41 +56,67 @@ const Content = styled.div`
   font-size: 14px;
 `
 const HeartBtn = styled.button`
-  display: inline-flex;
+  display: flex;
   font-size: 14px;
   color: "#C4C4C4";
   background-color: transparent;
   border: none;
   margin-top: 10px; margin-bottom: 5px;
   margin-left: 900px;
+  cursor: pointer;
 `
-function PostDetail(props) {
+const HeartImg = styled.div`
+  display: inline-flex;
+  position: relative;
+  width: 20px; height: 18px;
+  margin-right: 5px;
+  :before,
+  :after {
+    position: absolute;
+    content: "";
+    left: 10px;
+    top: 0;
+    width: 10px; height: 16px;
+    background: #C4C4C4;
+    border-radius: 10px 10px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+  }
+  :after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+  }
+`
+
+function PostDetail()  {
+  const [color, setColor] = useState("#C4C4C4");
   return (
     <div>
-            <div>
-              <TopBar />
-              <div className='index'>9807</div>
-              <Tag># react</Tag> <Tag># react</Tag>
-              <PostTitle>코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문</PostTitle>
-              <PostInfo>
-                <img src = {UserGrayImg} />
-                <div style={{'margin-right': '630px'}}>
-                  <User>윤채원</User>
-                  <Date>2021.06.05 / 00:14:56 작성</Date>
-                </div>
-                <SortBar>
-                  3<img src = {viewImg} className='smallImg'/>
-                  3<img src = {heartImg} className='smallImg'/>
-                  3<img src = {commentImg} className='smallImg'/>
-                </SortBar>
-              </PostInfo>
-              <MiddleBar />
-              <Content>코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문코딩 코딩질문질문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문 코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문 \ 문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문 문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문ㅍ</Content>
-              <HeartBtn><img src = {bigHeartImg} className='bigImg'/> 공감</HeartBtn>
-              <MiddleBar />
+      <div>
+        <TopBar />
+          <div className='index'>9807</div>
+          <Tag># react</Tag> <Tag># react</Tag>
+          <PostTitle>코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문</PostTitle>
+          <PostInfo>
+            <img src = {UserGrayImg} />
+            <div style={{'margin-right': '630px'}}>
+              <User>윤채원</User>
+               <Date>2021.06.05 / 00:14:56 작성</Date>
             </div>
-    </div>
-  );
+            <SortBar>
+              3<img src = {viewImg} className='smallImg'/>
+              3<img src = {heartImg} className='smallImg'/>
+              3<img src = {commentImg} className='smallImg'/>
+            </SortBar>
+          </PostInfo>
+          <MiddleBar />
+          <Content>코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문코딩 코딩질문질문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문 코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문 \ 문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문 문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문ㅍ</Content>
+          <HeartBtn><HeartImg /> 공감</HeartBtn>
+          <MiddleBar />
+        </div>
+      </div>
+    )
 }
 
 export default PostDetail;

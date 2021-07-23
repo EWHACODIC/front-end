@@ -11,15 +11,16 @@ const SortOpt = styled.button`
   display: inline-flex;
   font-size: 13px;
   background-color: transparent;
-  border-top: none; border-left: none; border-right: none;
-  border-bottom: 1px solid #000000;
+  border-top: none; border-left: none; border-right: none; border-bottom: 1px solid #000000;
   margin-right: 25px;
   padding: 0;
+  cursor: pointer;
 `
 
 const SearchBox = styled.div`
   display: inline-flex;
-  font-size: 12px;
+  align-items: center;
+  font-size: 14px;
   border: 2.5px solid #C4C4C4; border-radius: 5px;
   height: 25px;
 `
@@ -28,17 +29,15 @@ const Input = styled.input.attrs({
     type: 'search'
 })`
   border: none;
-  &:focus {
-        outline: none;
-    }
+  &:focus { outline: none; }
 `
 
 function SubBar() {
   return (
     <SortBar>
       <SearchBox>
-        <img src={searchImg} style={{'margin': '3px'}} />
-        <Input />
+        <img src={searchImg} style={{'margin': '3px', 'width': '15px'}} />
+        <form><Input /></form>
       </SearchBox>
       <SortOpt>조회순</SortOpt>
       <SortOpt>공감순</SortOpt>
