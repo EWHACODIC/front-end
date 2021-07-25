@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import styled from "styled-components";
-import SubBar from '../component/subBar';
 import PostDetail from '../component/postDetail';
 import CommentList from '../component/commentList';
 import CommentPost from "../component/commentPost";
