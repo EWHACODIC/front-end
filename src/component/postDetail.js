@@ -1,5 +1,6 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import styled from "styled-components";
+import axios from 'axios';
 import '../style/postDetail.css';
 import commentImg from "../assets/comment.svg";
 import heartImg from "../assets/heart.svg";
@@ -77,7 +78,7 @@ const HeartImg = styled.div`
     left: 10px;
     top: 0;
     width: 10px; height: 16px;
-    background: #C4C4C4;
+    background: ${props => props.color};
     border-radius: 10px 10px 0 0;
     transform: rotate(-45deg);
     transform-origin: 0 100%;
@@ -88,9 +89,36 @@ const HeartImg = styled.div`
     transform-origin: 100% 100%;
   }
 `
+const FontChange = styled.div`
+  font-weight: ${props => props.weight};
+  font-size: 13px;
+`
 
-function PostDetail()  {
-  const [color, setColor] = useState("#C4C4C4");
+
+function PostDetail({path})  {
+  const [isLike, setLike] = useState(false);
+  function handleLikeChange() {
+    if (isLike===false) {
+      setLike(true)
+    } else {
+      setLike(false)
+    }
+  }
+  const [post, setPost] = useState();
+  useEffect(async() => {
+    try {
+      const response = await axios.get(path);
+      setPost(response.data);
+      console.log(post);
+    } catch(e) {
+      console.log(e);
+    }
+  })
+  //const [color, setColor] = useState({
+  //  data:[],
+  //  isLike: "#C4C4C4",
+  //});
+  //const {data, isLike} = color;
   return (
     <div>
       <div>
@@ -112,7 +140,10 @@ function PostDetail()  {
           </PostInfo>
           <MiddleBar />
           <Content>코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문코딩 코딩질문질문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문 코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문 \ 문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문 문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문ㅍ</Content>
-          <HeartBtn><HeartImg /> 공감</HeartBtn>
+          <HeartBtn onClick={handleLikeChange} >
+            <HeartImg color = {(isLike===true)?'black':'#C4C4C4'}/>
+            <FontChange weight = {(isLike===true)?'bold':'medium'}> 공감</FontChange>
+          </HeartBtn>
           <MiddleBar />
         </div>
       </div>
