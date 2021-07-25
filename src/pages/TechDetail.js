@@ -14,7 +14,7 @@ const Title = styled.div`
   margin-right: 375px;
 `
 
-function TechPost() {
+function TechDetail() {
   return (
     <div>
       <Title>TECH&JOBs</Title>
@@ -25,4 +25,4 @@ function TechPost() {
   );
 }
 
-export default TechPost;
+export default TechDetail;
