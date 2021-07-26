@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <header className="header">
         <p>메인화면</p>
-        <Mypage></Mypage>
+        <Signup></Signup>
       </header>
     </div>
   );
