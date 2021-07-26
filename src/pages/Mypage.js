@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import styled from "styled-components";
 import '../style/Signup.css';
+axios.defaults.baseURL = "http://localhost:8080";
 
 const Wrapper = styled.div`
     text-align: left;
@@ -17,7 +18,7 @@ function Mypage () {
         .then(res => {
             console.log(res);
         })
-        .catch(res => console.log(res))
+        .catch(console.log("error"))
 
     return (
         <Wrapper>
