@@ -64,7 +64,6 @@ const Signup = () => {
     return (
         <div>
             <Wrapper>
-                <Login></Login>
                 <h1 className='title'>회원가입</h1>
                 <hr size='10' color='#49A862'></hr>
                 <a className='sub_title'>이메일로 가입하기</a>
