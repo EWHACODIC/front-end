@@ -1,11 +1,27 @@
 import React from "react";
 import styled from "styled-components";
 
+function RankCard(props) {
+  return (
+    <div>
+      {props ? (
+        <div>
+        <Ranking background={props.color}>{props.rank}위</Ranking>
+        <UserInfo>
+          <ImageTmp />
+          <UserName>{props.user}</UserName>
+        </UserInfo>
+        </div>
+      ):''}
+    </div>
+    );
+}
+
 const Ranking = styled.div`
   display: flex;
-  width: 170px; height: 90px;
+  width: 150px; height: 80px;
   align-items: center; justify-content: center;
-  font-size: 30px; font-weight: bold; color: white;
+  font-size: 26px; font-weight: bold; color: white;
   background: ${props => props.background};
   border-radius: 5px 5px 0 0;
   margin-right: 20px;
@@ -13,7 +29,7 @@ const Ranking = styled.div`
 const UserInfo = styled.div`
   display: flex;
   flex-direction: column;
-  width: 170px; height: 185px;
+  width: 150px; height: 185px;
   align-items: center; justify-content: center;
   background: #F8F8F8;
   margin-right: 20px;
@@ -31,20 +47,5 @@ const UserName = styled.div`
   display: flex;
   font-size: 20px; font-weight: bold;
 `
-function RankCard(props) {
-  return (
-    <div>
-      {props ? (
-        <div>
-        <Ranking background={props.color}>{props.rank}위</Ranking>
-        <UserInfo>
-          <ImageTmp />
-          <UserName>{props.user}</UserName>
-        </UserInfo>
-        </div>
-      ):''}
-    </div>
-    );
-}
 
 export default RankCard;

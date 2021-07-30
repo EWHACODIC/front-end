@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Banner from "../assets/MainBanner.png"
 import Comment from "../assets/comment.png"
@@ -89,7 +90,7 @@ const MainPage = () => {
 
             <div className='container' style={{width: '565px', display: 'inline-block'}}>
                 <h1 className='title'>STUDY</h1>
-                <p className='more'>MORE →</p>
+                <Link to="/study"><p className='more'>MORE →</p></Link>
                 <div className="board">
                     {qnaData.map(qna =>{
                         return <div>
