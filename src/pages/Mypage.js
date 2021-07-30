@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import styled from "styled-components";
 import '../style/Signup.css';
+import Login from '../component/Login';
 axios.defaults.baseURL = "http://localhost:8080";
 
 const Wrapper = styled.div`
@@ -22,6 +23,7 @@ function Mypage () {
 
     return (
         <Wrapper>
+            <Login></Login>
             <h1 className='title'>마이페이지</h1>
             <hr size='10' color='#49A862'></hr>
             <div className="user_box">이화인 인증</div>

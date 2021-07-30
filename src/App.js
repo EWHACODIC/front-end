@@ -6,10 +6,7 @@ import Mypage from './pages/Mypage';
 function App() {
   return (
     <div className="App">
-      <header className="header">
-        <p>메인화면</p>
         <Signup></Signup>
-      </header>
     </div>
   );
 }

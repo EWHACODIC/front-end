@@ -9,8 +9,9 @@ axios.defaults.baseURL = "http://localhost:8080";
 const Wrapper = styled.div`
     text-align: left;
     display: inline-block;
-    font-size:20px;
+    font-size: 20px;
     font-family: 'Noto Sans KR';
+    margin-top: 40px;
 `
 
 const Button = styled.button`
@@ -64,6 +65,7 @@ const Signup = () => {
     return (
         <div>
             <Wrapper>
+                <Login></Login>
                 <h1 className='title'>회원가입</h1>
                 <hr size='10' color='#49A862'></hr>
                 <a className='sub_title'>이메일로 가입하기</a>
