@@ -1,27 +1,36 @@
 import React, {useEffect, useState} from "react";
 import styled from "styled-components";
+import SideLogin from '../component/sideLogin';
 import PostDetail from '../component/postDetail';
 import CommentList from '../component/commentList';
 import CommentPost from "../component/commentPost";
 
+function TechDetail() {
+  return (
+    <div style={{'display': 'flex'}}>
+      <SideLogin />
+      <PostviewComponent>
+        <Title>TECH&JOBs</Title>
+        <PostDetail path={`http://localhost:8080/api/tech/post/`+`1`}/>
+        <CommentList />
+        <CommentPost />
+      </PostviewComponent>
+    </div>
+  );
+}
+
 const Title = styled.div`
-  display: inline-flex;
+  width: 150px;
   flex-direction: row;
   font-size: 24px;
   font-weight: bold;
   border-bottom: 3px solid #49A862;
-  margin-right: 375px;
+  margin-right: 365px;
 `
-
-function TechDetail() {
-  return (
-    <div>
-      <Title>TECH&JOBs</Title>
-      <PostDetail path={`http://localhost:8080/api/tech/post/`+`1`}/>
-      <CommentList />
-      <CommentPost />
-    </div>
-  );
-}
+const PostviewComponent = styled.div`
+  display: flex; flex: 1; overflow: auto;
+  flex-direction: column;
+  width: 970px; text-align: left;
+`
 
 export default TechDetail;
