@@ -1,10 +1,12 @@
 import './style/App.css';
+import MainPage from './pages/MainPage';
+import './style/MainPage.css';
 
 function App() {
   return (
     <div className="App">
       <header className="header">
-        <p>메인화면</p>
+        <MainPage></MainPage>
       </header>
     </div>
   );
