@@ -200,7 +200,6 @@ const RankingComponent = styled.div`
   width: 970px;
 `
 const RankTitle = styled.div`
-  
   width: 80px;
   flex-direction: row;
   font-size: 24px;
