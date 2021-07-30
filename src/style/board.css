@@ -34,7 +34,7 @@ img {
   width: 38%;
 }
 
-.title {
+.listTitle {
   display: flex;
   font-size: 14px; font-weight: bold;
 }

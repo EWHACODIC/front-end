@@ -1,15 +1,78 @@
 import React, {useEffect, useState} from "react";
 import styled from "styled-components";
+import SideLogin from "../component/sideLogin";
 import axios from "axios";
 
+function Post() {
+  return (
+    <div style={{'display': 'flex'}}>
+      <SideLogin />
+      <PostComponent>
+        <Title>새 글 쓰기</Title>
+        <TopBar />
+        <form style={{'width': '970px'}}>
+          <div style={{'margin-left': '25px'}}>
+            <div style={{'margin-bottom': '30px'}}>
+              <DropDown>
+                <BoardOption value={"none"}>게시판을 선택해주세요</BoardOption>
+                <BoardOption value={"qna"}>Q&A</BoardOption>
+                <BoardOption value={"community"}>COMMUNITY</BoardOption>
+                <BoardOption value={"tech"}>TECH&JOBs</BoardOption>
+              </DropDown>
+              <div style={{"display": "inline-flex", "justify-content": "flex-end", "width": "510px"}}>
+                <RegisterBtn>등록</RegisterBtn>
+              </div>
+            </div>
+            <TitleInput />
+            <ContentBox><ContentInput/></ContentBox>
+          </div>
+          <MiddleBar />
+        {/*<TagTitle>태그</TagTitle>
+        <div style={{'display':'inline-flex', 'flex-wrap':'wrap', 'width': '860px'}}>
+        <TagInput># C</TagInput>
+        <TagInput># C#</TagInput>
+        <TagInput># C++</TagInput>
+        <TagInput># java</TagInput>
+        <TagInput># go</TagInput>
+        <TagInput># swift</TagInput>
+        <TagInput># kotlin</TagInput>
+        <TagInput># python</TagInput>
+        <TagInput># unity</TagInput>
+        <TagInput># react</TagInput>
+        <TagInput># redux</TagInput>
+        <TagInput># html</TagInput>
+        <TagInput># css</TagInput>
+        <TagInput># javascript</TagInput>
+        <TagInput># spring</TagInput>
+        <TagInput># springboot</TagInput>
+        <TagInput># express</TagInput>
+        <TagInput># node.js</TagInput>
+        <TagInput># django</TagInput>
+        <TagInput># next.js</TagInput>
+        <TagInput># mysql</TagInput>
+        <TagInput># nosql</TagInput>
+        <TagInput># django rest framework</TagInput>
+        </div>*/}
+        </form>
+      </PostComponent>
+    </div>
+  );
+}
+
 const Title = styled.div`
-  display: inline-flex;
+  width: 100px;
   flex-direction: row;
   font-size: 24px;
   font-weight: bold;
   border-bottom: 3px solid #49A862;
-  margin-right: 375px;
+  margin-right: 365px;
 `
+const PostComponent = styled.div`
+  display: flex; flex: 1; overflow: auto;
+  flex-direction: column;
+  width: 970px;
+`
+
 const TopBar = styled.div`
   width: 970px;
   height: 5px;
@@ -79,53 +142,27 @@ const MiddleBar = styled.div`
   margin-bottom: 30px;
 `
 const TagTitle = styled.div`
-  width: 70px;
-  padding: 3px;
+  display: inline-flex;
+  padding-left: 25px; padding-right: 25px;
+  padding-top: 3px; padding-bottom: 3.5px;
   text-align: center;
   font-size: 15px; font-weight: bold;
   border: 2.5px solid #000000;
   border-radius: 20px;
+  margin-right: 25px;
 `
 const TagInput = styled.button.attrs({
-    value: (props)=>(props.value)
+  value: (props)=>(props.value)
 })`
-  width: 70px;
-  padding: 3px;
   text-align: center;
-  font-size: 15px; font-weight: bold;
-  border: 2.5px solid #000000;
+  font-size: 15px;
+  border: 2.5px solid #C4C4C4;
   border-radius: 20px;
+  padding-left: 15px; padding-right: 15px;
+  padding-top: 3px; padding-bottom: 3.5px;
+  margin-right: 10px; margin-bottom: 10px;
   font-color: ${(props)=>(props.color)}
   background: ${(props)=>(props.background)}
 `
-
-function Post() {
-  return (
-    <div>
-      <Title>새 글 쓰기</Title>
-      <TopBar />
-      <form style={{'width': '970px'}}>
-        <div style={{'margin-left': '25px'}}>
-        <div style={{'margin-bottom': '30px'}}>
-          <DropDown>
-            <BoardOption value="none">게시판을 선택해주세요</BoardOption>
-            <BoardOption value="qna">Q&A</BoardOption>
-            <BoardOption value="community">COMMUNITY</BoardOption>
-            <BoardOption value="tech">TECH&JOBs</BoardOption>
-          </DropDown>
-          <div style={{"display": "inline-flex", "justify-content": "flex-end", "width": "510px"}}>
-            <RegisterBtn>등록</RegisterBtn>
-          </div>
-        </div>
-        <TitleInput />
-        <ContentBox><ContentInput/></ContentBox>
-        </div>
-        <MiddleBar />
-        <TagTitle>태그</TagTitle>
-
-      </form>
-    </div>
-  );
-}
 
 export default Post;

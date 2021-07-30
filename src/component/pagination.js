@@ -9,7 +9,7 @@ const Pagination = ({page, count, setPage}) => {
         activePage={page}
         itemsCountPerPage={12}
         totalItemsCount={count}
-        pageRangeDisplayed={2}
+        pageRangeDisplayed={9}
         prevPageText={"‹"}
         nextPageText={"›"}
         onChange={setPage} />
