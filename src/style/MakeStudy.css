@@ -1,0 +1,14 @@
+.title {
+    font-size: 27px;
+    text-decoration: underline;
+    text-underline-position: under;
+    text-decoration-color: #49A862;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+form {
+    display: grid;
+    grid-gap: 20px 0px;
+    grid-template-columns: repeat(3, 1fr);
+}

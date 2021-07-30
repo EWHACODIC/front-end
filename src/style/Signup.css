@@ -1,0 +1,66 @@
+.title {
+    font-size: 27px;
+    text-decoration: underline;
+    text-underline-position: under;
+    text-decoration-color: #49A862;
+    margin-top: 0;
+}
+
+.sub_title {
+    margin-bottom: 30px;
+}
+
+.form {
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+.form > a {
+    font-size: 12px;
+    line-height: 17px;
+    color: #C4C4C4;
+    line-height: 40px;
+}
+
+.info {
+    font-size: 20px;
+    line-height: 29px;
+    color: #228B52;
+    text-align: center;
+}
+
+.info > span {
+    margin: 30px;
+}
+
+.user_box {
+    background: #F8F8F8;
+    border-radius: 5px;
+    text-align: center;
+    width: 150px;
+    height: 41px;
+    line-height: 40px;
+    display: inline-block;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.modify {
+    float: right;
+    width: 174px;
+    height: 41px;
+    border: none;
+    background: #C9E492;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    font-size: 20px;
+    margin-top: 20vh;
+}
+
+.emailCertify {
+    background: #48A560;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    line-height: 20px;
+}
