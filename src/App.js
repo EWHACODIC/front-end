@@ -5,9 +5,7 @@ import './style/MainPage.css';
 function App() {
   return (
     <div className="App">
-      <header className="header">
         <MainPage></MainPage>
-      </header>
     </div>
   );
 }
