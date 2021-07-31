@@ -1,9 +1,48 @@
 import React, {useEffect, useState} from "react";
+import '../style/Post.css';
 import styled from "styled-components";
 import SideLogin from "../component/sideLogin";
 import axios from "axios";
 
 function Post() {
+  const [type, setType] = useState();
+  const [title, setTitle] = useState();
+  const [content, setContent] = useState();
+  const [tagList, setTagList] = useState([]);
+  const [user, setUser] = useState(123);
+  const typeHandler = (e) => {
+    e.preventDefault();
+    setType(e.target.value);
+  };
+  const titleHandler = (e) => {
+    e.preventDefault();
+    setTitle(e.target.value);
+  };
+  const contentHandler = (e) => {
+    e.preventDefault();
+    setContent(e.target.value);
+  };
+  const tagHandler = (e) => {
+    e.preventDefault();
+    setTagList(e.target.value);
+  };
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log(type);
+    console.log(title);
+    console.log(content);
+    console.log(tagList);
+    console.log(user);
+    let body = {
+      title: title,
+      content: content,
+      tag: tagList,
+      userId: user,
+    };
+    axios
+      .post(`http://localhost:8080/api/${type}/new`, body)
+      .then((res)=>console.log(res));
+  };
   return (
     <div style={{'display': 'flex'}}>
       <SideLogin />
@@ -27,32 +66,32 @@ function Post() {
             <ContentBox><ContentInput/></ContentBox>
           </div>
           <MiddleBar />
-        {/*<TagTitle>태그</TagTitle>
-        <div style={{'display':'inline-flex', 'flex-wrap':'wrap', 'width': '860px'}}>
-        <TagInput># C</TagInput>
-        <TagInput># C#</TagInput>
-        <TagInput># C++</TagInput>
-        <TagInput># java</TagInput>
-        <TagInput># go</TagInput>
-        <TagInput># swift</TagInput>
-        <TagInput># kotlin</TagInput>
-        <TagInput># python</TagInput>
-        <TagInput># unity</TagInput>
-        <TagInput># react</TagInput>
-        <TagInput># redux</TagInput>
-        <TagInput># html</TagInput>
-        <TagInput># css</TagInput>
-        <TagInput># javascript</TagInput>
-        <TagInput># spring</TagInput>
-        <TagInput># springboot</TagInput>
-        <TagInput># express</TagInput>
-        <TagInput># node.js</TagInput>
-        <TagInput># django</TagInput>
-        <TagInput># next.js</TagInput>
-        <TagInput># mysql</TagInput>
-        <TagInput># nosql</TagInput>
-        <TagInput># django rest framework</TagInput>
-        </div>*/}
+        <TagTitle>태그 선택 <div style={{'margin-left': '10px', 'margin-top': '6px'}}>(최대 2개 선택가능)</div></TagTitle>
+        <div style={{'display':'inline-flex', 'flex-wrap':'wrap', 'width': '860px', 'text-align': 'left'}}>
+          <TagInput className='tagInput' id='btn_01' value="C"/><label className='tagLabel' for='btn_01'>C</label>
+          <TagInput className='tagInput' id='btn_02' value="C#"/><label className='tagLabel' for='btn_02'>C#</label>
+          <TagInput className='tagInput' id='btn_03' value="C++"/><label className='tagLabel' for='btn_03'>C++</label>
+          <TagInput className='tagInput' id='btn_04' value="java"/><label className='tagLabel' for='btn_04'>java</label>
+          <TagInput className='tagInput' id='btn_05' value="go"/><label className='tagLabel' for='btn_05'>go</label>
+          <TagInput className='tagInput' id='btn_06' value="swift"/><label className='tagLabel' for='btn_06'>swift</label>
+          <TagInput className='tagInput' id='btn_07' value="kotlin"/><label className='tagLabel' for='btn_07'>kotlin</label>
+          <TagInput className='tagInput' id='btn_08' value="python"/><label className='tagLabel' for='btn_08'>python</label>
+          <TagInput className='tagInput' id='btn_09' value="unity"/><label className='tagLabel' for='btn_09'>unity</label>
+          <TagInput className='tagInput' id='btn_10' value="react"/><label className='tagLabel' for='btn_10'>react</label>
+          <TagInput className='tagInput' id='btn_11' value="redux"/><label className='tagLabel' for='btn_11'>redux</label>
+          <TagInput className='tagInput' id='btn_12' value="html"/><label className='tagLabel' for='btn_12'>html</label>
+          <TagInput className='tagInput' id='btn_13' value="mysql"/><label className='tagLabel' for='btn_13'>mysql</label>
+          <TagInput className='tagInput' id='btn_14' value="nosql"/><label className='tagLabel' for='btn_14'>nosql</label>
+          <TagInput className='tagInput' id='btn_15' value="css"/><label className='tagLabel' for='btn_15'>css</label>
+          <TagInput className='tagInput' id='btn_16' value="javascript"/><label className='tagLabel' for='btn_16'>javascript</label>
+          <TagInput className='tagInput' id='btn_17' value="spring"/><label className='tagLabel' for='btn_17'>spring</label>
+          <TagInput className='tagInput' id='btn_18' value="springboot"/><label className='tagLabel' for='btn_18'>springboot</label>
+          <TagInput className='tagInput' id='btn_19' value="express"/><label className='tagLabel' for='btn_19'>express</label>
+          <TagInput className='tagInput' id='btn_20' value="node.js"/><label className='tagLabel' for='btn_20'>node.js</label>
+          <TagInput className='tagInput' id='btn_21' value="django"/><label className='tagLabel' for='btn_21'>diango</label>
+          <TagInput className='tagInput' id='btn_22' value="next.js"/><label className='tagLabel' for='btn_22'>next.js</label>
+          <TagInput className='tagInput' id='btn_23' value="diango rest framework"/><label className='tagLabel' for='btn_23'>diango rest framework</label>
+        </div>
         </form>
       </PostComponent>
     </div>
@@ -139,30 +178,20 @@ const ContentInput = styled.textarea.attrs({
 const MiddleBar = styled.div`
   width: 970px;
   border: 1px solid rgba(0, 0, 0, 0.6);
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 `
 const TagTitle = styled.div`
-  display: inline-flex;
-  padding-left: 25px; padding-right: 25px;
-  padding-top: 3px; padding-bottom: 3.5px;
-  text-align: center;
-  font-size: 15px; font-weight: bold;
-  border: 2.5px solid #000000;
-  border-radius: 20px;
-  margin-right: 25px;
+  display: flex;
+  text-align: left;
+  font-size: 18px; font-weight: bold;
+  margin-left: 25px; margin-bottom: 15px;
 `
-const TagInput = styled.button.attrs({
-  value: (props)=>(props.value)
-})`
-  text-align: center;
-  font-size: 15px;
-  border: 2.5px solid #C4C4C4;
-  border-radius: 20px;
-  padding-left: 15px; padding-right: 15px;
-  padding-top: 3px; padding-bottom: 3.5px;
-  margin-right: 10px; margin-bottom: 10px;
-  font-color: ${(props)=>(props.color)}
-  background: ${(props)=>(props.background)}
+
+const TagInput = styled.input.attrs({
+  type: 'checkbox'
+})
+`
+
 `
 
 export default Post;
