@@ -32,17 +32,17 @@ const Input = styled.input.attrs({
   &:focus { outline: none; }
 `
 
-function SubBar() {
+function SubBar(props) {
   return (
     <SortBar>
       <SearchBox>
         <img src={searchImg} style={{'margin': '3px', 'width': '15px'}} />
         <form><Input /></form>
       </SearchBox>
-      <SortOpt>조회순</SortOpt>
-      <SortOpt>공감순</SortOpt>
-      <SortOpt>댓글순</SortOpt>
-      <SortOpt>최신순</SortOpt>
+      <SortOpt onClick={() => props.setSort("view,DESC")}>조회순</SortOpt>
+      <SortOpt onClick={() => props.setSort("recommend,DESC")}>공감순</SortOpt>
+      <SortOpt onClick={() => props.setSort("commentCount,DESC")}>댓글순</SortOpt>
+      <SortOpt onClick={() => props.setSort("createdAt,DESC")}>최신순</SortOpt>
     </SortBar>
   );
 }

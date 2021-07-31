@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import SideLogin from "../component/sideLogin";
 import SubBar from '../component/subBar';
@@ -11,17 +11,31 @@ function TechList() {
   const handlePageChange = (page) => {
     setPage(page);
   };
-
+  const [pageNum, setPageNum] = useState();
+  useEffect(async () => {
+    try {
+      const response = await axios.get(`http://localhost:8080/api/tech/list/total/count`);
+      setPageNum(response.data);
+    } catch (e) {
+      console.log(e)
+    }
+  }, [])
+  const [sort, setSort] = useState('createdAt,DESC');
+  console.log(sort);
   return (
     <div style={{'display': 'flex'}}>
       <SideLogin />
       <BoardComponent>
         <div style={{'display': 'flex'}}>
           <Title>TECH&JOBs</Title>
-          <SubBar />
+          <SubBar type={'tech'} setSort={setSort}/>
         </div>
-        <Board path={`http://localhost:8080/api/tech/post/list?page=`} pageNum={page} />
-        <Pagination page={page} count={25} setPage={handlePageChange} />
+        {pageNum ? (
+          <div>
+            <Board type={'tech'} pageNum={page-1} sort={sort} />
+            <Pagination page={page} count={pageNum} setPage={handlePageChange} />
+          </div>
+        ):''}
       </BoardComponent>
     </div>
   );
