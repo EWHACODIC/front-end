@@ -3,8 +3,7 @@ import styled from "styled-components";
 import SideLogin from "../component/sideLogin";
 import SubBar from '../component/subBar';
 import Board from '../component/board';
-import Pagination from '../component/pagination'
-import {response} from '../boardListEx';
+import Pagination from '../component/pagination';
 import axios from "axios";
 
 function TechList() {
@@ -22,7 +21,7 @@ function TechList() {
           <SubBar />
         </div>
         <Board path={`http://localhost:8080/api/tech/post/list?page=`} pageNum={page} />
-        <Pagination page={page} count={response.length} setPage={handlePageChange} />
+        <Pagination page={page} count={25} setPage={handlePageChange} />
       </BoardComponent>
     </div>
   );

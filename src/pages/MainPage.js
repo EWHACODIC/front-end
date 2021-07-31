@@ -107,7 +107,7 @@ const MainPage = () => {
 
             <div className='container'>
                 <h1 className='title'>TECH&JOB</h1>
-                <Link to="/techJob"><p className='more'>MORE →</p></Link>
+                <Link to="/tech"><p className='more'>MORE →</p></Link>
                 <div className="board">
                     {qnaData.map(qna =>{
                         return <div>
