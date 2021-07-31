@@ -15,8 +15,8 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={MainPage}/>
-          <Route path="/study" component={Study}/>
-          <Route path="/tech" component={TechJob}/>
+          <Route exact path="/study" component={Study}/>
+          <Route exact path="/tech" component={TechJob}/>
           <Route exact path='/tech/postView/:no' component={TechDetail} />
           <Route path="/post" component={Post} />
           <Route path="/signup" component={Signup}/>

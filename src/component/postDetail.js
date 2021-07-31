@@ -7,6 +7,69 @@ import heartImg from "../assets/heart.svg";
 import viewImg from "../assets/view.svg";
 import UserGrayImg from "../assets/userGray.svg";
 
+function PostDetail({path})  {
+  const [isLike, setLike] = useState(false);
+  function handleLikeChange() {
+    if (isLike===false) {
+      setLike(true)
+    } else {
+      setLike(false)
+    }
+  }
+  const [post, setPost] = useState();
+  useEffect(async() => {
+    try {
+      const response = await axios.get(path);
+      setPost(response.data);
+    } catch(e) {
+      console.log(e);
+    }
+  }, []);
+  //const [color, setColor] = useState({
+  //  data:[],
+  //  isLike: "#C4C4C4",
+  //});
+  //const {data, isLike} = color;
+  return (
+    <div>
+    {post ? (
+      <div>
+        <TopBar />
+          <div className='index'>{post.id}</div>
+          {post.tag1 && <Tag># {post.tag1}</Tag>}
+          {post.tag2 && <div><Tag># {post.tag1}</Tag><Tag># {post.tag2}</Tag></div>}
+          <PostTitle>{post.title}</PostTitle>
+          <PostInfo>
+            <img src = {UserGrayImg} />
+            <div style={{'margin-right': '630px'}}>
+              <User>{post.userCode}</User>
+               <Date>{post.createDate.replace("T", " / ")}</Date>
+            </div>
+            <SortBar>
+              {post.view}<img src = {viewImg} className='smallImg'/>
+              {post.recommend != null ?
+                  <div><img src = {heartImg} className='smallImg'/>{ post.recommend }</div> :
+                  <div><img src = {heartImg} className='smallImg'/>0</div>
+              }
+              {post.commentCount != null ?
+                  <div><img src = {commentImg} className='smallImg'/>{ post.commentCount }</div> :
+                  <div><img src = {commentImg} className='smallImg'/>0</div>
+              }
+            </SortBar>
+          </PostInfo>
+          <MiddleBar />
+          <Content>{post.content}</Content>
+          <HeartBtn onClick={handleLikeChange} >
+            <HeartImg color = {(isLike===true)?'black':'#C4C4C4'}/>
+            <FontChange weight = {(isLike===true)?'bold':'medium'}> 공감</FontChange>
+          </HeartBtn>
+          <MiddleBar />
+        </div>
+      ):''}
+      </div>
+    )
+}
+
 const TopBar = styled.div`
   width: 970px;
   height: 5px;
@@ -93,61 +156,5 @@ const FontChange = styled.div`
   font-weight: ${props => props.weight};
   font-size: 13px;
 `
-
-
-function PostDetail({path})  {
-  const [isLike, setLike] = useState(false);
-  function handleLikeChange() {
-    if (isLike===false) {
-      setLike(true)
-    } else {
-      setLike(false)
-    }
-  }
-  const [post, setPost] = useState();
-  useEffect(async() => {
-    try {
-      const response = await axios.get(path);
-      setPost(response.data);
-      console.log(post);
-    } catch(e) {
-      console.log(e);
-    }
-  })
-  //const [color, setColor] = useState({
-  //  data:[],
-  //  isLike: "#C4C4C4",
-  //});
-  //const {data, isLike} = color;
-  return (
-    <div>
-      <div>
-        <TopBar />
-          <div className='index'>9807</div>
-          <Tag># react</Tag> <Tag># react</Tag>
-          <PostTitle>코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문</PostTitle>
-          <PostInfo>
-            <img src = {UserGrayImg} />
-            <div style={{'margin-right': '630px'}}>
-              <User>윤채원</User>
-               <Date>2021.06.05 / 00:14:56 작성</Date>
-            </div>
-            <SortBar>
-              3<img src = {viewImg} className='smallImg'/>
-              3<img src = {heartImg} className='smallImg'/>
-              3<img src = {commentImg} className='smallImg'/>
-            </SortBar>
-          </PostInfo>
-          <MiddleBar />
-          <Content>코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문코딩 코딩질문질문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문 코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문 \ 문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문 문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문문코딩코딩질문질문코딩코딩질문질문코딩코딩질문질문ㅍ</Content>
-          <HeartBtn onClick={handleLikeChange} >
-            <HeartImg color = {(isLike===true)?'black':'#C4C4C4'}/>
-            <FontChange weight = {(isLike===true)?'bold':'medium'}> 공감</FontChange>
-          </HeartBtn>
-          <MiddleBar />
-        </div>
-      </div>
-    )
-}
 
 export default PostDetail;

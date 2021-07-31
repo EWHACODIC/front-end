@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import SideLogin from "../component/sideLogin";
 import SubBar from '../component/subBar';
@@ -11,17 +11,31 @@ function TechList() {
   const handlePageChange = (page) => {
     setPage(page);
   };
-
+  const [pageNum, setPageNum] = useState();
+  useEffect(async () => {
+    try {
+      const response = await axios.get(`http://localhost:8080/api/tech/list/total/count`);
+      setPageNum(response.data);
+    } catch (e) {
+      console.log(e)
+    }
+  }, [])
+  const [sort, setSort] = useState('createdAt,DESC');
+  const [search, setSearch] = useState('');
   return (
     <div style={{'display': 'flex'}}>
       <SideLogin />
       <BoardComponent>
         <div style={{'display': 'flex'}}>
           <Title>TECH&JOBs</Title>
-          <SubBar />
+          <SubBar type={'tech'} setSort={setSort} setSearch={setSearch}/>
         </div>
-        <Board path={`http://localhost:8080/api/tech/post/list?page=`} pageNum={page} />
-        <Pagination page={page} count={25} setPage={handlePageChange} />
+        {sort ? (
+          <div>
+            <Board type={'tech'} path={`http://localhost:8080/api/tech/list?page=${pageNum}&size=12&sort=${sort}`} />
+            <Pagination page={page} count={pageNum} setPage={handlePageChange} />
+          </div>
+        ):''}
       </BoardComponent>
     </div>
   );

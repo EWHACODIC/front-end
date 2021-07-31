@@ -1,0 +1,16 @@
+.tagInput {
+  opacity: 0;
+}
+
+.tagLabel {
+  padding-left: 15px; padding-right: 15px;
+  padding-top: 3px; padding-bottom: 3.5px;
+  margin-bottom: 10px;
+  background: #C4C4C4; border-radius: 20px; color: white;
+  font-size: 15px;
+}
+
+input[type=checkbox]:checked + label {
+  background: #FFDA7A;
+  color: black;
+}
