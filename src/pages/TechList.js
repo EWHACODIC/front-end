@@ -21,18 +21,18 @@ function TechList() {
     }
   }, [])
   const [sort, setSort] = useState('createdAt,DESC');
-  console.log(sort);
+  const [search, setSearch] = useState('');
   return (
     <div style={{'display': 'flex'}}>
       <SideLogin />
       <BoardComponent>
         <div style={{'display': 'flex'}}>
           <Title>TECH&JOBs</Title>
-          <SubBar type={'tech'} setSort={setSort}/>
+          <SubBar type={'tech'} setSort={setSort} setSearch={setSearch}/>
         </div>
-        {pageNum ? (
+        {sort ? (
           <div>
-            <Board type={'tech'} pageNum={page-1} sort={sort} />
+            <Board type={'tech'} path={`http://localhost:8080/api/tech/list?page=${pageNum}&size=12&sort=${sort}`} />
             <Pagination page={page} count={pageNum} setPage={handlePageChange} />
           </div>
         ):''}

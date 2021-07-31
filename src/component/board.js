@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import {Link} from 'react-router-dom';
 import '../style/board.css'
 import styled from "styled-components";
 import commentImg from "../assets/comment.svg";
@@ -7,11 +8,11 @@ import viewImg from "../assets/view.svg";
 import userImg from "../assets/user.svg";
 import axios from "axios";
 
-function Board({type, pageNum, sort}) {
+function Board({type, path}) {
   const [postList, setPostList] = useState();
   useEffect(async () => {
     try {
-      const posts = await axios.get(`http://localhost:8080/api/${type}/list?page=${pageNum}&size=12&sort=${sort}`);
+      const posts = await axios.get(path);
       setPostList(posts.data);
       console.log(postList);
     }catch(e) {
@@ -37,17 +38,24 @@ function Board({type, pageNum, sort}) {
                 <tr key = {item.id}>
                   <td className='postOrder'>{ item.id }</td>
                   <td className='postTitle'>
-                    {item.tag2 ? <div><Tag># {item.tag1}</Tag><Tag># {item.tag2}</Tag></div>:<Tag># {item.tag1}</Tag>}
-                    <div className='listTitle'>{ item.title }</div>
+                    {item.tag1 && <Tag># {item.tag1}</Tag>}
+                    {item.tag2 && <div><Tag># {item.tag1}</Tag><Tag># {item.tag2}</Tag></div>}
+                    <div className='listTitle'>
+                      <Link to={`${type}/postView/${item.id}`} style={{'text-decoration': 'none', 'color': 'black'}}>{ item.title }</Link>
+                    </div>
                   </td>
                   <td className='postInfo'>
                     {item.commentCount != null ?
-                      <div><img src = {commentImg} className='smallImg' />{ item.commentCount }</div>:
+                      <div><img src = {commentImg} className='smallImg' />{ item.commentCount }</div> :
                       <div><img src = {commentImg} className='smallImg' />0</div>
                     }
                   </td>
                   <td className='postInfo'>
-                    <img src = {heartImg} className='smallImg' />{ item.recommend }</td>
+                    {item.recommend != null ?
+                        <div><img src = {heartImg} className='smallImg' />{ item.recommend }</div> :
+                        <div><img src = {heartImg} className='smallImg' />0</div>
+                    }
+                  </td>
                   <td className='postInfo'>
                     <img src = {viewImg} className='smallImg' />{ item.view }</td>
                   <td className='writer'>

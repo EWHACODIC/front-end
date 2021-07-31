@@ -5,15 +5,16 @@ import PostDetail from '../component/postDetail';
 import CommentList from '../component/commentList';
 import CommentPost from "../component/commentPost";
 
-function TechDetail() {
+function TechDetail({match}) {
+  const {no} = match.params;
   return (
     <div style={{'display': 'flex'}}>
       <SideLogin />
       <PostviewComponent>
         <Title>TECH&JOBs</Title>
-        <PostDetail path={`http://localhost:8080/api/tech/post/`+`1`}/>
-        <CommentList />
-        <CommentPost />
+        <PostDetail path={`http://localhost:8080/api/tech/${no}`}/>
+        <CommentList path={`http://localhost:8080/api/tech/${no}/comment`}/>
+        <CommentPost type={'tech'} postId={no}/>
       </PostviewComponent>
     </div>
   );

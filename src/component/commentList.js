@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import UserGrayImg from '../assets/userGray.svg'
+import axios from "axios";
 
 const CommentTitle = styled.div`
   display: flex;
@@ -29,19 +30,33 @@ const CreatedDate = styled.div`
   display: flex;
   font-size: 11px;;
 `
-function CommentList() {
+function CommentList({path}) {
+  const [comments, setComments] = useState();
+  useEffect(async() => {
+    try {
+      const response = await axios.get(path);
+      setComments(response.data);
+      console.log(comments);
+    } catch(e) {
+      console.log(e);
+    }
+  }, [])
   return (
     <div>
-      <CommentTitle>댓글 3</CommentTitle>
-      <Comment>
-        <img src = {UserGrayImg} />
-        <div style = {{'margin-left': '5px'}}>
-          <User style = {{'font-weight': 'bold'}}>윤채원</User>
-          <User>답글댓글답글댓글답글댓글답글댓글답글댓글답글댓글답글댓글답글댓글</User>
-          <CreatedDate>2021.06.05 / 00:14:56 작성</CreatedDate>
+        {comments ? comments.map((item) =>(
+        <div>
+          <CommentTitle>댓글 {comments.length}</CommentTitle>
+          <Comment>
+          <img src = {UserGrayImg} />
+          <div style = {{'margin-left': '5px'}}>
+            <User style = {{'font-weight': 'bold'}}>{item.userCode}</User>
+            <User>{item.content}</User>
+            <CreatedDate>{item.createDate.replace("T", " / ")} 작성</CreatedDate>
+          </div>
+          </Comment>
+          <MiddleBar />
         </div>
-      </Comment>
-      <MiddleBar />
+      )):''}
     </div>
   );
 }
