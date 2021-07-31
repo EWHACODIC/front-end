@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 import '../style/Signup.css';
 import Login from '../component/Login';
 import axios from "axios";
@@ -39,20 +40,25 @@ const InputBox = styled.input`
 const Signup = () => {
 
     const { register, handleSubmit, getValues, formState: { errors } } = useForm();
+    const history = useHistory();
 
-    //폼에서 제출한 데이터 백으로 post, 홈으로 redirect(나중에 라우터 path로 변경필)
-    const onSubmit = (data) =>
-        fetch(`http://localhost:3000`)
-        .then(
-            axios.post('/api/signup', JSON.stringify(data)))
+    //폼에서 제출한 데이터 백으로 post, 홈으로 redirect
+    const onSubmit = (data) => {
+        axios.post('/api/signup', JSON.stringify(data))
+        .then(function (response) {
+            alert("회원가입이 완료되었습니다.");
+            history.push('/');
+        })
+        .catch(function (error) {
+            alert("에러");
+        })
+    }
 
     //이메일 인증
     const emailCertify = () => {
-        const email = 'test@ewhain.net';
+        const email = document.getElementById("email_input").value;
         console.log(email);
-        axios.post('/CheckMail', {
-            email:email
-          })
+        axios.post('/CheckMail', email)
           .then(function (response) {
             alert("인증번호가 전송되었습니다.");
             const isCertification=true;
@@ -72,7 +78,7 @@ const Signup = () => {
                 <form onSubmit={handleSubmit(onSubmit)} className='form'>
                     <InputBox
                         {...register('userId', { required: true })}
-                        placeholder='유레카 이메일' style= {{ width: '15vw', display: 'inline-block' }} />
+                        id='email_input' placeholder='유레카 이메일' style= {{ width: '15vw', display: 'inline-block' }} />
                     <span> @ ewhain.net </span> <button class="emailCertify" onClick={emailCertify}> 이화인 인증 </button>
                     <br></br><br></br>
                     <InputBox

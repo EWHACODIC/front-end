@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Lock from "../assets/login-lock.png"
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 axios.defaults.baseURL = "http://localhost:8080";
 
@@ -43,11 +44,11 @@ const ButtonJoin = styled.button`
 
 const Login = () => {
     const { register, handleSubmit } = useForm();
+    const history = useHistory();
     //로그인 정보 백으로 전송
     const onSubmit = (data) =>
-        fetch(`http://localhost:3000`)
-        .then(
-            axios.post('/api/login', JSON.stringify(data)))
+        axios.post('/login', JSON.stringify(data))
+        .then(history.push('/mypage'));
 
     //axios로 로그인 정보 받아오기(백 미구현)
     //if(axios.get('/login')

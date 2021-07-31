@@ -35,6 +35,10 @@
     padding: 17px;
 }
 
+.board > div > a {
+    font-size: 20px;
+}
+
 .board-info {
     float: right;
 }
