@@ -83,7 +83,7 @@ const Signup = () => {
                     <br></br><br></br>
                     <InputBox
                         {...register('password', { required: true })}
-                        placeholder='비밀 번호' style= {{ width: '40vw' }} />
+                        placeholder='비밀 번호' type='password' style= {{ width: '40vw' }} />
                     <InputBox
                         {...register('password_confirm',
                             { required: true,
@@ -93,7 +93,7 @@ const Signup = () => {
                                         return password === value || "입력한 비밀번호와 다릅니다."; }
                             }}
                         )}
-                        placeholder='비밀 번호 확인' style= {{ width: '40vw' }} />
+                        placeholder='비밀 번호 확인' type='password' style= {{ width: '40vw' }} />
                     {/* 비밀번호 불일치 시 메시지 */}
                     {errors.password_confirm && (
                         <a style={{display: 'block'}}>{errors.password_confirm.message}

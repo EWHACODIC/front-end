@@ -12,6 +12,13 @@ const Wrapper = styled.div`
 `
 
 const MainPage = () => {
+    axios.get("http://localhost:8080/api/post/list?page=0&size=10&sort=createdAt,DESC")
+        .then(res => {
+            console.log(res);
+        })
+        .catch(console.log("error"))
+
+
     const qnaData = [
         {
             "id": 1,

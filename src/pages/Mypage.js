@@ -28,11 +28,12 @@ function Mypage () {
             <hr size='10' color='#49A862'></hr>
             <div className="user_box">이화인 인증</div>
             <span style={{color: '#228B52'}}>이화인 인증이 완료되었습니다. </span><br/>
-            <div className="user_box">아이디</div><br/>
-            <div className="user_box">비밀번호</div><br/>
-            <div className="user_box">비밀번호 확인</div><br/>
-            <div className="user_box">깃허브 아이디</div><br/>
-            <div className="user_box">이메일</div> <span id="email"></span><br/>
+            <div className="user_box">비밀번호</div>
+            <span>te*****</span><br/>
+            <div className="user_box">깃허브 아이디</div>
+            <span>ewha_coder</span><br/>
+            <div className="user_box">이메일</div>
+            <span>test@ewhain.net</span><br/>
             <button className="modify">정보수정하기</button>
         </Wrapper>
     )
