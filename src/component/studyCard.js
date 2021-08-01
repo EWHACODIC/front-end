@@ -1,11 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import detailBtn from "../assets/plusBtn.svg";
 import clock from '../assets/clock.svg';
 import calendar from '../assets/calendar.svg';
 import person from '../assets/person.svg';
+import StudyDom from'./StudyDom';
+import StudyPopup from './StudyPopup';
 
 function StudyCard(props) {
+  const [openPopup, setOpenPopup] = useState(false);
   return (
     <div>
       {props ? (
@@ -24,7 +27,12 @@ function StudyCard(props) {
                 <LineBreak style={{'font-size': '12px'}}>{props.studyInfo.userCode}</LineBreak>
                 <LineBreak style={{'font-size': '10px'}}>{props.studyInfo.createdAt.replace('T', '/')} 작성</LineBreak>
               </div>
-              <DetailBtn><img src = {detailBtn} style={{'width': '40px'}}/></DetailBtn>
+              <DetailBtn onClick={()=>{setOpenPopup(true)}}><img src = {detailBtn} style={{'width': '40px'}}/></DetailBtn>
+              {openPopup &&
+                <StudyDom>
+                  <StudyPopup studyId={props.studyInfo.id} onClose={()=>setOpenPopup(false)} />
+                </StudyDom>
+              }
             </div>
           </StudyInfo>
         </Info>
@@ -86,7 +94,9 @@ const LineBreak = styled.div`
   display: flex;
   padding: 1px;
 `
-const DetailBtn = styled.button`
+const DetailBtn = styled.button.attrs({
+  id: 'studyDom'
+})`
   background: none; border: none;
   cursor: pointer;
 `

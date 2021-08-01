@@ -5,121 +5,6 @@ import RankCard from "../component/rankCard";
 import StudyCard from "../component/studyCard"
 import axios from "axios";
 
-const data = [
-  {
-    'rank': 1,
-    'userName': '이지원'
-  },
-  {
-    'rank': 2,
-    'userName': '이지원'
-  },
-  {
-     'rank': 3,
-     'userName': '이지원'
-  },
-  {
-     'rank': 4,
-     'userName': '이지원'
-  },
-  {
-    'rank': 5,
-    'userName': '이지원'
-  }
-]
-
-const studyData = [
-    {
-        'id': 1,
-        'title': '자바 알고리즘 스터디',
-        'currentMember': 6,
-        'totalMember': 8,
-        'time': 3,
-        'term': 3,
-        'type': 'online',
-        'userName': '이지원',
-        'createdAt': '2018-11-12T13:00:00'
-    },
-    {
-        'id': 2,
-        'title': '자바 알고리즘 스터디',
-        'currentMember': 6,
-        'totalMember': 8,
-        'time': 3,
-        'term': 3,
-        'type': 'offline',
-        'userName': '이지원',
-        'createdAt': '2018-11-12T13:00:00'
-    },
-    {
-        'id': 3,
-        'title': '자바 알고리즘 스터디',
-        'currentMember': 6,
-        'totalMember': 8,
-        'time': 3,
-        'term': 3,
-        'type': 'online',
-        'userName': '이지원',
-        'createdAt': '2018-11-12T13:00:00'
-    },
-    {
-        'id': 4,
-        'title': '자바 알고리즘 스터디',
-        'currentMember': 6,
-        'totalMember': 8,
-        'time': 3,
-        'term': 3,
-        'type': 'online',
-        'userName': '이지원',
-        'createdAt': '2018-11-12T13:00:00'
-    },
-    {
-        'id': 5,
-        'title': '자바 알고리즘 스터디',
-        'currentMember': 6,
-        'totalMember': 8,
-        'time': 3,
-        'term': 3,
-        'type': 'offline',
-        'userName': '이지원',
-        'createdAt': '2018-11-12T13:00:00'
-    },
-    {
-        'id': 6,
-        'title': '자바 알고리즘 스터디',
-        'currentMember': 6,
-        'totalMember': 8,
-        'time': 3,
-        'term': 3,
-        'type': 'offline',
-        'userName': '이지원',
-        'createdAt': '2018-11-12T13:00:00'
-    },
-    {
-        'id': 7,
-        'title': '자바 알고리즘 스터디',
-        'currentMember': 6,
-        'totalMember': 8,
-        'time': 3,
-        'term': 3,
-        'type': 'online',
-        'userName': '이지원',
-        'createdAt': '2018-11-12T13:00:00'
-    },
-    {
-        'id': 8,
-        'title': '자바 알고리즘 스터디',
-        'currentMember': 6,
-        'totalMember': 8,
-        'time': 3,
-        'term': 3,
-        'type': 'online',
-        'userName': '이지원',
-        'createdAt': '2018-11-12T13:00:00'
-    }
-
-]
-
 function Study() {
   const colorList = ['#48A560', '#63B779', '#7EC18F', '#B1D8BB', '#CEE3D4'];
   const [user, setUser] = useState(1234);
@@ -143,6 +28,7 @@ function Study() {
       console.log(e);
     }
   }, []);
+
   return (
     <div>
       <div style={{'display': 'flex'}}>
