@@ -2,32 +2,21 @@ import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import LoginBox from '../component/Login';
 import RankCard from "../component/rankCard";
-import StudyCard from "../component/studyCard"
 import axios from "axios";
-import {Link} from "react-router-dom";
 
-function Study() {
+function TotalRank() {
   const colorList = ['#48A560', '#63B779', '#7EC18F', '#B1D8BB', '#CEE3D4'];
   const [user, setUser] = useState(1234);
-  const [rankList, setRankList] = useState();
-  const [recentStudy, setRecentStudy] = useState();
+  const [totalRank, setTotalRank] = useState();
   useEffect(async () => {
     try {
       const response = await axios.get(`http://localhost:8080/api/rank`);
-      setRankList(response.data);
+      setTotalRank(response.data);
+      console.log(totalRank);
     }catch(e) {
       console.log(e);
     }
   }, []);
-  useEffect(async () => {
-    try {
-      const data = await axios.get(`http://localhost:8080/api/study/list/recent`);
-      setRecentStudy(data.data);
-    }catch(e) {
-      console.log(e);
-    }
-  }, []);
-
   return (
     <div>
       <div style={{'display': 'flex'}}>
@@ -40,17 +29,22 @@ function Study() {
         </SubComponent>
         <RankingComponent>
           <div style={{'display': 'flex'}}>
-            <RankTitle>STUDY</RankTitle>
-            <Link to='/study/rank' style={{'margin-top': '15px'}}><RankBtn>이화여자대학교 전체 랭킹 보러가기 →</RankBtn></Link>
+            <RankTitle>전체 Github 랭킹</RankTitle>
           </div>
-          <div style={{'display': 'inline-flex'}}>
-            { rankList ?.map((rankInfo, i) => {
-              if (i<5)
-                return (
+          <div style={{'display': 'inline-flex', 'flex-wrap': 'wrap', 'width':'1000px'}}>
+            { totalRank ?.map((rankInfo, i) => {
+              if (i<5) {
+                return(
                   <RankComponent>
                     <RankCard color={colorList[i]} rank={rankInfo.rank} user={rankInfo.userName} />
                   </RankComponent>
-                )
+                );}
+              else {
+                return (
+                  <RankComponent>
+                    <RankCard color={colorList[4]} rank={rankInfo.rank} user={rankInfo.userName} />
+                  </RankComponent>
+                );}
             })}
             <Circle color={'#228B52'} />
             <Circle color={'#48A560'} />
@@ -58,23 +52,7 @@ function Study() {
           </div>
         </RankingComponent>
       </div>
-      <div style={{'margin-top': '60px', 'width': '1200px', 'margin-left': '230px'}}>
-        <div style={{'display':'flex'}}>
-          <StudyTitle>벗들의 모여서 각자 코딩</StudyTitle>
-          <Link to='/study/total' style={{'margin-top': '15px'}}><RankBtn><p style={{'font-size': '18px', 'margin-right': '35px'}}>MORE →</p></RankBtn></Link>
-        </div>
-        <div style={{'display': 'inline-flex', 'flex-wrap':'wrap', 'width': '1200px'}}>
-          { recentStudy ?.map((studyInfo) => {
-            return (
-              <StudyComponent>
-                <StudyCard studyInfo={studyInfo}/>
-              </StudyComponent>
-            )
-          })}
-        </div>
-      </div>
     </div>
-
   );
 }
 
@@ -107,17 +85,12 @@ const RankingComponent = styled.div`
   width: 970px;
 `
 const RankTitle = styled.div`
-  width: 80px;
+  width: 180px;
   flex-direction: row;
   font-size: 24px;
   font-weight: bold;
   border-bottom: 3px solid #49A862;
   margin-bottom: 25px; margin-right: 580px;
-`
-const RankBtn = styled.button`
-  font-size: 15px;
-  border: none; background: none;
-  cursor: pointer;
 `
 const RankComponent = styled.div`
   margin-right: 5px;
@@ -129,17 +102,5 @@ const Circle = styled.div`
   background: ${props=>props.color};
   margin-top: 137.5px; margin-left: 5px;
 `
-const StudyTitle = styled.div`
-  display: flex; flex: none;
-  width: 240px;
-  flex-direction: row;
-  font-size: 24px; font-weight: bold;
-  border-bottom: 3px solid #49A862;
-  margin-bottom: 25px; margin-right: 830px;
-`
-const StudyComponent = styled.div`
-  margin-right: 10px;
-  margin-bottom: 30px;
-`
 
-export default Study;
+export default TotalRank;

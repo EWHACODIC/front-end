@@ -25,6 +25,7 @@ const Ranking = styled.div`
   background: ${props => props.background};
   border-radius: 5px 5px 0 0;
   margin-right: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `
 const UserInfo = styled.div`
   display: flex;
@@ -32,8 +33,8 @@ const UserInfo = styled.div`
   width: 150px; height: 185px;
   align-items: center; justify-content: center;
   background: #F8F8F8;
-  margin-right: 20px;
-  border-radius: 5px;
+  margin-right: 20px; margin-bottom: 20px;
+  border-radius: 0 0 5px 5px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `
 const ImageTmp = styled.div`

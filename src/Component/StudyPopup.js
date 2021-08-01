@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import '../style/StudyPopup.css';
 import styled from "styled-components";
 import person from '../assets/person.svg';
@@ -6,6 +6,7 @@ import clock from '../assets/clock.svg';
 import calendar from '../assets/calendar.svg';
 import check from '../assets/check.svg';
 import note from '../assets/note.svg';
+import axios from "axios";
 
 const studyDetail = {
   "id": 46,
@@ -24,6 +25,17 @@ const studyDetail = {
 }
 
 function StudyPopup(props) {
+  const [studyDetail, setStudyDetail] = useState();
+  useEffect(async () => {
+    try {
+      const response = await axios.get(`http://localhost:8080/api/study/${props.studyId}`);
+      setStudyDetail(response.data);
+      console.log(studyDetail);
+    }catch(e) {
+      console.log(e);
+    }
+  }, []);
+
   return (
     <div>
       {studyDetail ? (
@@ -31,13 +43,13 @@ function StudyPopup(props) {
           <Layer>
             <AlertPopup>
               <StudyTop>
-                {studyDetail.title}
+                <div style={{'width': '90%', 'font-size':'20px', 'padding':'10px'}}>{studyDetail.title}</div>
                 <CloseBtn onClick={props.onClose}>×</CloseBtn>
               </StudyTop>
               <StudyContent>
                 <UserInfo>
                   <UserImg />
-                  <UserID>ID : {studyDetail.userId.substring(0,3)+'*'.repeat(studyDetail.userId.length-3)}</UserID>
+                  <UserID>ID : {studyDetail.userCode.substring(0,2)+'*'.repeat(studyDetail.userCode.length-2)}</UserID>
                   <CreateDate>
                     <LineBreak style={{'margin-left':'15px'}}>{studyDetail.createdAt.split('T')[0].replace(/-/gi, ' ')}</LineBreak>
                     <LineBreak>{studyDetail.createdAt.split('T')[1]} 작성</LineBreak>
@@ -109,15 +121,15 @@ const AlertPopup = styled.div`
   margin-top: 200px;
 `
 const StudyTop = styled.div`
+  display: inline-flex;
   width: 100%;
   background: #48A560;
   padding: 10px;
-  color: white; font-size: 20px; font-weight: bold;
+  color: white; font-weight: bold;
 `
 const CloseBtn = styled.button`
   border: none; background: transparent;
   font-size: 30px; color: white; font-weight: bold;
-  margin-left: 330px;
   cursor: pointer;
 `
 const StudyContent = styled.div`

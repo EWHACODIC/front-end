@@ -3,6 +3,8 @@ import './style/MainPage.css';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import MainPage from './pages/MainPage';
 import Study from './pages/Study';
+import TotalRank from './pages/TotalRank';
+import TotalStudy from './pages/TotalStudy';
 import TechJob from './pages/TechList';
 import TechDetail from './pages/TechDetail';
 import Qna from './pages/QnaList';
@@ -20,6 +22,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={MainPage}/>
           <Route exact path="/study" component={Study}/>
+          <Route exact path="/study/rank" component={TotalRank} />
+          <Route exact path='/study/total' component={TotalStudy} />
           <Route exact path="/tech" component={TechJob}/>
           <Route exact path='/tech/postView/:no' component={TechDetail} />
           <Route exact path="/qna" component={Qna}/>
