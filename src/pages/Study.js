@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import LoginBox from '../component/Login';
 import RankCard from "../component/rankCard";
 import StudyCard from "../component/studyCard"
+import axios from "axios";
 
 const data = [
   {
@@ -121,6 +122,27 @@ const studyData = [
 
 function Study() {
   const colorList = ['#48A560', '#63B779', '#7EC18F', '#B1D8BB', '#CEE3D4'];
+  const [user, setUser] = useState(1234);
+  const [rankList, setRankList] = useState();
+  const [recentStudy, setRecentStudy] = useState();
+  useEffect(async () => {
+    try {
+      const response = await axios.get(`http://localhost:8080/api/rank`);
+      setRankList(response.data);
+      console.log(rankList);
+    }catch(e) {
+      console.log(e);
+    }
+  }, []);
+  useEffect(async () => {
+    try {
+      const data = await axios.get(`http://localhost:8080/api/study/list/recent`);
+      setRecentStudy(data.data);
+      console.log(recentStudy);
+    }catch(e) {
+      console.log(e);
+    }
+  }, []);
   return (
     <div>
       <div style={{'display': 'flex'}}>
@@ -137,7 +159,7 @@ function Study() {
             <RankBtn>이화여자대학교 전체 랭킹 보러가기 →</RankBtn>
           </div>
           <div style={{'display': 'inline-flex'}}>
-            { data ?.map((rankInfo, i) => {
+            { rankList ?.map((rankInfo, i) => {
               if (i<5)
                 return (
                   <RankComponent>
@@ -157,7 +179,7 @@ function Study() {
           <RankBtn><p style={{'font-size': '18px', 'margin-right': '35px'}}>MORE →</p></RankBtn>
         </div>
         <div style={{'display': 'inline-flex', 'flex-wrap':'wrap', 'width': '1200px'}}>
-          { studyData ?.map((studyInfo) => {
+          { recentStudy ?.map((studyInfo) => {
             return (
               <StudyComponent>
                 <StudyCard studyInfo={studyInfo}/>
