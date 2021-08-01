@@ -22,5 +22,5 @@ front-end
 
 - [김수아](https://github.com/sua-kim) - 게시판 목록 및 상세페이지, 스터디 화면, 모각코, 랭킹 구현
 - [김은지](https://github.com/KSilverJi) - 회원가입 및 마이페이지, 로그인, 메인페이지, 스터디 모집 구현
-- [김혜린](https://github.com/graygra16) - header/footer/관심태그 구현
+- [김혜린](https://github.com/graygra16) - header, footer구현
 
