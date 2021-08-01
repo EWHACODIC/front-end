@@ -6,13 +6,14 @@ import Comment from "../assets/comment.png"
 import Heart from "../assets/heart.png"
 import View from "../assets/view.png"
 import axios from "axios";
+axios.defaults.baseURL = "http://34.64.231.193";
 
 const Wrapper = styled.div`
     font-family: 'Noto Sans KR';
 `
 
 const MainPage = () => {
-    axios.get("http://localhost:8080/api/post/list?page=0&size=10&sort=createdAt,DESC")
+    axios.get("/login")
         .then(res => {
             console.log(res);
         })

@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import '../style/Signup.css';
 import Login from '../component/Login';
 import axios from "axios";
-axios.defaults.baseURL = "http://localhost:8080";
+axios.defaults.baseURL = "http://34.64.231.193";
 
 const Wrapper = styled.div`
     text-align: left;
@@ -56,17 +56,28 @@ const Signup = () => {
 
     //이메일 인증
     const emailCertify = () => {
+
         const email = document.getElementById("email_input").value;
-        console.log(email);
+
         axios.post('/api/email/verify', email)
           .then(function (response) {
             alert("인증번호가 전송되었습니다.");
-            const isCertification=true;
+            
           })
           .catch(function (error) {
             alert("에러");
           });
     }
+
+    //function compare() {
+        //if (document.getElementById("email_code").value == code) {   //인증 키 값을 비교를 위해 텍스트인풋과 벨류를 비교
+			//document.getElementById("compare-text").text("인증 성공");
+			//const isCertification = true;  //인증 성공여부 check
+		//} else {
+			//document.getElementById("compare-text").text("불일치").css("color", "red");
+			//const isCertification = false; //인증 실패
+		//}
+    //}
 
     return (
         <div>
@@ -80,10 +91,17 @@ const Signup = () => {
                         {...register('userId', { required: true })}
                         id='email_input' placeholder='유레카 이메일' style= {{ width: '15vw', display: 'inline-block' }} />
                     <span> @ ewhain.net </span> <button class="emailCertify" onClick={emailCertify}> 이화인 인증 </button>
+                    <br></br>
+
+                    <InputBox
+                        id='email_code' placeholder='인증번호' style= {{ width: '15vw', display: 'inline-block' }} />
+                        <span className='compare-text'></span>
                     <br></br><br></br>
+
                     <InputBox
                         {...register('password', { required: true })}
                         placeholder='비밀 번호' type='password' style= {{ width: '40vw' }} />
+
                     <InputBox
                         {...register('password_confirm',
                             { required: true,
@@ -100,6 +118,7 @@ const Signup = () => {
                         </a>
                     )}
                     <a>비밀번호는 영문소문자와 숫자의 조합으로 8-16자</a><br></br>
+
                     <InputBox
                         {...register('githubName', { required: true })}
                         placeholder='깃허브 아이디' style= {{ width: '40vw' }} />
