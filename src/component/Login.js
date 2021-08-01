@@ -63,7 +63,7 @@ const Login = () => {
     }
     
     //이미 로그인을 했을 경우(세션스토리지에 데이터가 있을 경우)
-    if (sessionStorage.getItem('userId') != null) {
+    if (sessionStorage.getItem('userId') != null && sessionStorage.getItem('userId') != 'undefined' ) {
         return ( <Welcome></Welcome> )
     }
     else {
