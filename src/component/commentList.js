@@ -51,7 +51,7 @@ function CommentList({path}) {
           <div style = {{'margin-left': '5px'}}>
             <User style = {{'font-weight': 'bold'}}>{item.userCode}</User>
             <User>{item.content}</User>
-            <CreatedDate>{item.createDate.replace("T", " / ")} 작성</CreatedDate>
+            <CreatedDate>{item.createdAt.replace("T", " / ")} 작성</CreatedDate>
           </div>
           </Comment>
           <MiddleBar />
