@@ -9,11 +9,12 @@ import StudyPopup from './StudyPopup';
 
 function StudyCard(props) {
   const [openPopup, setOpenPopup] = useState(false);
+  console.log(props.studyInfo)
   return (
     <div>
       {props ? (
         <Info>
-          <StudyName><p style={{'margin-left': '8px'}}>{props.studyInfo.description}</p></StudyName>
+          <StudyName><p style={{'margin-left': '8px'}}>{props.studyInfo.title}</p></StudyName>
           <StudyInfo>
             <Info>
               <InfoDetail><Image src = {person} />{props.studyInfo.curPpl} / {props.studyInfo.maxPpl}</InfoDetail>
@@ -24,7 +25,7 @@ function StudyCard(props) {
             <div style ={{"display": "inline-flex"}}>
               <UserImg />
               <div style={{'margin-right': '40px'}}>
-                <LineBreak style={{'font-size': '12px'}}>{props.studyInfo.userCode}</LineBreak>
+                <LineBreak style={{'font-size': '12px'}}>{props.studyInfo.userCode.substring(0,2)+'*'.repeat(props.studyInfo.userCode.length-2)}</LineBreak>
                 <LineBreak style={{'font-size': '10px'}}>{props.studyInfo.createdAt.replace('T', '/')} 작성</LineBreak>
               </div>
               <DetailBtn onClick={()=>{setOpenPopup(true)}}><img src = {detailBtn} style={{'width': '40px'}}/></DetailBtn>
