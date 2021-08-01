@@ -58,7 +58,7 @@ const Signup = () => {
     const emailCertify = () => {
         const email = document.getElementById("email_input").value;
         console.log(email);
-        axios.post('/CheckMail', email)
+        axios.post('/api/email/verify', email)
           .then(function (response) {
             alert("인증번호가 전송되었습니다.");
             const isCertification=true;
