@@ -45,7 +45,7 @@ function TotalRank() {
                     <RankCard color={colorList[4]} rank={rankInfo.rank} user={rankInfo.userName} />
                   </RankComponent>
                 );}
-            })}
+            })()}
             <Circle color={'#228B52'} />
             <Circle color={'#48A560'} />
             <Circle color={'#B1D8BB'} />

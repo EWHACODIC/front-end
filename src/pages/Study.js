@@ -44,14 +44,14 @@ function Study() {
             <Link to='/study/rank' style={{'margin-top': '15px'}}><RankBtn>이화여자대학교 전체 랭킹 보러가기 →</RankBtn></Link>
           </div>
           <div style={{'display': 'inline-flex'}}>
-            { rankList ?.map((rankInfo, i) => {
+            { rankList ? rankList.map((rankInfo, i) => {
               if (i<5)
                 return (
                   <RankComponent>
                     <RankCard color={colorList[i]} rank={rankInfo.rank} user={rankInfo.userName} />
                   </RankComponent>
                 )
-            })}
+            }): ''}
             <Circle color={'#228B52'} />
             <Circle color={'#48A560'} />
             <Circle color={'#B1D8BB'} />
@@ -64,13 +64,13 @@ function Study() {
           <Link to='/study/total' style={{'margin-top': '15px'}}><RankBtn><p style={{'font-size': '18px', 'margin-right': '35px'}}>MORE →</p></RankBtn></Link>
         </div>
         <div style={{'display': 'inline-flex', 'flex-wrap':'wrap', 'width': '1200px'}}>
-          { recentStudy ?.map((studyInfo) => {
+          { recentStudy ? recentStudy.map((studyInfo) => {
             return (
               <StudyComponent>
                 <StudyCard studyInfo={studyInfo}/>
               </StudyComponent>
             )
-          })}
+          }):''}
         </div>
       </div>
     </div>

@@ -28,7 +28,7 @@ function TotalStudy() {
                 <StudyCard studyInfo={studyInfo}/>
               </StudyComponent>
             )
-          })}
+          })()}
         </div>
       </div>
     </div>
