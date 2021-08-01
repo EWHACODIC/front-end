@@ -10,18 +10,18 @@ function StudyCard(props) {
     <div>
       {props ? (
         <Info>
-          <StudyName><p style={{'margin-left': '8px'}}>{props.studyInfo.title}</p></StudyName>
+          <StudyName><p style={{'margin-left': '8px'}}>{props.studyInfo.description}</p></StudyName>
           <StudyInfo>
             <Info>
-              <InfoDetail><Image src = {person} />{props.studyInfo.currentMember} / {props.studyInfo.totalMember}</InfoDetail>
+              <InfoDetail><Image src = {person} />{props.studyInfo.curPpl} / {props.studyInfo.maxPpl}</InfoDetail>
               <InfoDetail><Image src = {clock} />{props.studyInfo.time}시간</InfoDetail>
-              <InfoDetail><Image src = {calendar} style={{'padding-bottom':'2px'}}/>{props.studyInfo.term}개월</InfoDetail>
+              <InfoDetail style={{'margin-top': '2px', 'margin-left':'2px'}}><Image src = {calendar} style={{'padding-bottom':'2px'}}/>{props.studyInfo.startAt} ~ {props.studyInfo.endAt}</InfoDetail>
             </Info>
-            {props.studyInfo.type==='online'?<StudyType background={'#F28095'}>ONline</StudyType>:<StudyType background={'#2D7EF8'}>OFFline</StudyType>}
+            {props.studyInfo.studyType==='ONLINE'?<StudyType background={'#F28095'}>ONline</StudyType>:<StudyType background={'#2D7EF8'}>OFFline</StudyType>}
             <div style ={{"display": "inline-flex"}}>
               <UserImg />
               <div style={{'margin-right': '40px'}}>
-                <LineBreak style={{'font-size': '12px'}}>{props.studyInfo.userName}</LineBreak>
+                <LineBreak style={{'font-size': '12px'}}>{props.studyInfo.userCode}</LineBreak>
                 <LineBreak style={{'font-size': '10px'}}>{props.studyInfo.createdAt.replace('T', '/')} 작성</LineBreak>
               </div>
               <DetailBtn><img src = {detailBtn} style={{'width': '40px'}}/></DetailBtn>
@@ -69,7 +69,7 @@ const Image = styled.img`
 `
 const StudyType = styled.div`
   width: 55px;
-  padding: 3px; margin-bottom: 60px; margin-left: 5px;
+  padding: 3px; margin-bottom: 50px; margin-left: 5px;
   text-align: center;
   font-size: 12px; color: white;
   border-radius: 20px;
