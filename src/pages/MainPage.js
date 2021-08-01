@@ -64,7 +64,7 @@ const MainPage = () => {
 
             <div className='container'>
                 <h1 className='title'>Q&A</h1>
-                <p className='more'>MORE →</p>
+                <Link to="/qna"><p className='more'>MORE →</p></Link>
                 <div className="board">
                     {qnaData.map(qna =>{
                         return <div>
@@ -81,7 +81,7 @@ const MainPage = () => {
 
             <div className='container' style={{width: '565px', display: 'inline-block', marginRight: '53px'}}>
                 <h1 className='title'>COMMUNITY</h1>
-                <p className='more'>MORE →</p>
+                <Link to="/community"><p className='more'>MORE →</p></Link>
                 <div className="board">
                     {qnaData.map(qna =>{
                         return <div>

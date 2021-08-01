@@ -10,11 +10,10 @@ import axios from "axios";
 
 function Board({type, path}) {
   const [postList, setPostList] = useState();
-  useEffect(async () => {
+  useEffect(async() => {
     try {
       const posts = await axios.get(path);
       setPostList(posts.data);
-      console.log(postList);
     }catch(e) {
       console.log(e);
     }
@@ -38,8 +37,7 @@ function Board({type, path}) {
                 <tr key = {item.id}>
                   <td className='postOrder'>{ item.id }</td>
                   <td className='postTitle'>
-                    {item.tag1 && <Tag># {item.tag1}</Tag>}
-                    {item.tag2 && <div><Tag># {item.tag1}</Tag><Tag># {item.tag2}</Tag></div>}
+                    {item.tag.length === 2 ? <div><Tag># {item.tag[0]}</Tag><Tag># {item.tag[1]}</Tag></div>:<Tag># {item.tag}</Tag>}
                     <div className='listTitle'>
                       <Link to={`${type}/postView/${item.id}`} style={{'text-decoration': 'none', 'color': 'black'}}>{ item.title }</Link>
                     </div>
