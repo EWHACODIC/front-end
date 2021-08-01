@@ -56,14 +56,14 @@ const Login = () => {
             history.push('/mypage'),
             //로그인한 userId 세션스토리지에 저장
             function (response) {
-                sessionStorage.setItem('userId', data['userId']);
+                sessionStorage.setItem('userId', response['userId']);
             }
         )
         .catch(alert("로그인에 실패했습니다."));
     }
     
     //이미 로그인을 했을 경우(세션스토리지에 데이터가 있을 경우)
-    if (sessionStorage.getItem('userId') !== null) {
+    if (sessionStorage.getItem('userId') != null) {
         return ( <Welcome></Welcome> )
     }
     else {
@@ -85,7 +85,6 @@ const Login = () => {
                     <ButtonJoin style={{width: '60%'}}>아이디 / 비번 찾기</ButtonJoin>
                 </div>
                 <hr size='2' color='black'></hr>
-                <Welcome></Welcome>
             </Wrapper>
         );
     }
