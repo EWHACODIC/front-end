@@ -36,8 +36,7 @@ function PostDetail({path})  {
       <div>
         <TopBar />
           <div className='index'>{post.id}</div>
-          {post.tag1 && <Tag># {post.tag1}</Tag>}
-          {post.tag2 && <div><Tag># {post.tag1}</Tag><Tag># {post.tag2}</Tag></div>}
+          {post.tag.length === 2 ? <div><Tag># {post.tag[0]}</Tag><Tag># {post.tag[1]}</Tag></div>:<Tag># {post.tag}</Tag>}
           <PostTitle>{post.title}</PostTitle>
           <PostInfo>
             <img src = {UserGrayImg} />
@@ -82,7 +81,7 @@ const Tag = styled.div`
   background: #4D4D4D; border-radius: 5px;
   padding-left: 8px; padding-right: 8px;
   padding-top: 3px; padding-bottom: 3.5px;
-  margin-bottom: 3px;
+  margin-bottom: 3px; margin-left: 5px;
 `
 const PostTitle = styled.div`
   display: flex;
