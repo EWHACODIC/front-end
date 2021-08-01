@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import {Link} from 'react-router-dom';
 import '../style/board.css'
 import styled from "styled-components";
 import commentImg from "../assets/comment.svg";
@@ -7,153 +8,17 @@ import viewImg from "../assets/view.svg";
 import userImg from "../assets/user.svg";
 import axios from "axios";
 
-const postList = [
-  {
-    "id": 1,
-    "title": "title",
-    "tag": ["태그"],
-    "view": 8,
-    "recommend": 0,
-    "commentNum": 2,
-    "userCode": 1234,
-    "createDate": "2018-11-12T13:00:00",
-    "modifiedDate": "2018-11-12T13:00:00"
-  },
-  {
-    "id": 2,
-    "title": "title2222",
-    "tag": ["태그"],
-    "view": 6,
-    "recommend": 0,
-    "commentNum": 0,
-    "userCode": 1234,
-    "createDate": "2018-11-12T13:00:00",
-    "modifiedDate": "2018-11-12T13:00:00"
-  },
-  {
-    "id": 3,
-    "title": "title2222",
-    "tag": ["태그"],
-    "view": 2,
-    "recommend": 0,
-    "commentNum": 0,
-    "userCode": 1234,
-    "createDate": "2018-11-12T13:00:00",
-    "modifiedDate": "2018-11-12T13:00:00"
-  },
-  {
-    "id": 4,
-    "title": "title2222",
-    "tag": ["태그"],
-    "view": 2,
-    "recommend": 0,
-    "commentNum": 0,
-    "userCode": 1234,
-    "createDate": "2018-11-12T13:00:00",
-    "modifiedDate": "2018-11-12T13:00:00"
-  },
-  {
-    "id": 5,
-    "title": "title2222",
-    "tag": ["태그"],
-    "view": 2,
-    "recommend": 0,
-    "commentNum": 0,
-    "userCode": 1234,
-    "createDate": "2018-11-12T13:00:00",
-    "modifiedDate": "2018-11-12T13:00:00"
-  },
-  {
-    "id": 6,
-    "title": "title2222",
-    "tag": ["태그"],
-    "view": 2,
-    "recommend": 0,
-    "commentNum": 0,
-    "userCode": 1234,
-    "createDate": "2018-11-12T13:00:00",
-    "modifiedDate": "2018-11-12T13:00:00"
-  },
-  {
-    "id": 7,
-    "title": "title2222",
-    "tag": ["태그"],
-    "view": 2,
-    "recommend": 0,
-    "commentNum": 0,
-    "userCode": 1234,
-    "createDate": "2018-11-12T13:00:00",
-    "modifiedDate": "2018-11-12T13:00:00"
-  },
-  {
-    "id": 8,
-    "title": "title2222",
-    "tag": ["태그"],
-    "view": 2,
-    "recommend": 0,
-    "commentNum": 0,
-    "userCode": 1234,
-    "createDate": "2018-11-12T13:00:00",
-    "modifiedDate": "2018-11-12T13:00:00"
-  },
-  {
-    "id": 9,
-    "title": "title2222",
-    "tag": ["태그"],
-    "view": 2,
-    "recommend": 0,
-    "commentNum": 0,
-    "userCode": 1234,
-    "createDate": "2018-11-12T13:00:00",
-    "modifiedDate": "2018-11-12T13:00:00"
-  },
-  {
-    "id": 10,
-    "title": "title2222",
-    "tag": ["태그"],
-    "view": 2,
-    "recommend": 0,
-    "commentNum": 0,
-    "userCode": 1234,
-    "createDate": "2018-11-12T13:00:00",
-    "modifiedDate": "2018-11-12T13:00:00"
-  },
-  {
-    "id": 11,
-    "title": "title2222",
-    "tag": ["태그"],
-    "view": 2,
-    "recommend": 0,
-    "commentNum": 0,
-    "userCode": 1234,
-    "createDate": "2018-11-12T13:00:00",
-    "modifiedDate": "2018-11-12T13:00:00"
-  },
-  {
-    "id": 12,
-    "title": "title2222",
-    "tag": ["태그"],
-    "view": 2,
-    "recommend": 0,
-    "commentNum": 0,
-    "userCode": 1234,
-    "createDate": "2018-11-12T13:00:00",
-    "modifiedDate": "2018-11-12T13:00:00"
-  }
-]
-
-function Board({path, pageNum}) {
-  console.log(pageNum);
-  {/*const [postList, setPostList] = useState([]);
+function Board({type, path}) {
+  const [postList, setPostList] = useState();
   useEffect(async () => {
     try {
-      const posts = await axios.get(path+String(pageNum)+'&size=12');
-      setPostList(posts);
+      const posts = await axios.get(path);
+      setPostList(posts.data);
       console.log(postList);
     }catch(e) {
       console.log(e);
     }
-  }, []);*/}
+  }, []);
   return (
     <div>
       <table>
@@ -173,13 +38,24 @@ function Board({path, pageNum}) {
                 <tr key = {item.id}>
                   <td className='postOrder'>{ item.id }</td>
                   <td className='postTitle'>
-                    {item.tag.length === 2 ? <div><Tag># {item.tag[0]}</Tag><Tag># {item.tag[1]}</Tag></div>:<Tag># {item.tag}</Tag>}
-                    <div className='listTitle'>{ item.title }</div>
+                    {item.tag1 && <Tag># {item.tag1}</Tag>}
+                    {item.tag2 && <div><Tag># {item.tag1}</Tag><Tag># {item.tag2}</Tag></div>}
+                    <div className='listTitle'>
+                      <Link to={`${type}/postView/${item.id}`} style={{'text-decoration': 'none', 'color': 'black'}}>{ item.title }</Link>
+                    </div>
                   </td>
                   <td className='postInfo'>
-                    <img src = {commentImg} className='smallImg' />{ item.commentNum }</td>
+                    {item.commentCount != null ?
+                      <div><img src = {commentImg} className='smallImg' />{ item.commentCount }</div> :
+                      <div><img src = {commentImg} className='smallImg' />0</div>
+                    }
+                  </td>
                   <td className='postInfo'>
-                    <img src = {heartImg} className='smallImg' />{ item.recommend }</td>
+                    {item.recommend != null ?
+                        <div><img src = {heartImg} className='smallImg' />{ item.recommend }</div> :
+                        <div><img src = {heartImg} className='smallImg' />0</div>
+                    }
+                  </td>
                   <td className='postInfo'>
                     <img src = {viewImg} className='smallImg' />{ item.view }</td>
                   <td className='writer'>

@@ -1,6 +1,47 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import CommentImg from '../assets/comment.svg'
+import axios from "axios";
+
+function CommentPost({type, postId}) {
+    const [user, setUser] = useState(1234);
+    const [comment, setComment] = useState();
+    const commentHandler = (e) => {
+      e.preventDefault();
+      setComment(e.target.value);
+    };
+    const submitHandler = (e) => {
+      e.preventDefault();
+      console.log(user);
+      console.log(comment);
+      let body = {
+        content: comment,
+        userCode: user,
+      };
+      axios
+        .post(`http://localhost:8080/api/${type}/${postId}/comment`, body)
+        .then((res)=>console.log(res));
+    };
+
+    return (
+      <div>
+        <CommentHeader>
+          <img src={CommentImg} style={{"width": "25px"}}/>
+          <CommentTitle>댓글쓰기</CommentTitle>
+        </CommentHeader>
+        <CommentBox>
+          <form onSubmit={submitHandler}>
+            <User value={user}>{user}</User>
+            <CommentInput value={comment} onChange={commentHandler}/>
+            <div style={{"display": "flex", "justify-content": "flex-end", "width": "900px"}}>
+              <RegisterBtn type='submit'>등록</RegisterBtn>
+            </div>
+          </form>
+        </CommentBox>
+        <MiddleBar/>
+      </div>
+    );
+}
 
 const CommentHeader = styled.div`
   display: inline-flex;
@@ -34,10 +75,7 @@ const CommentInput = styled.textarea.attrs({
   margin-left: 8px;
   &:focus {outline: none};
 `
-const RegisterBtn = styled.button.attrs({
-    type: "submit"
-})
-`
+const RegisterBtn = styled.button`
   width: 60px; height: 40px;
   margin-right: 10px;
   font-size: 14px;
@@ -51,27 +89,5 @@ const MiddleBar = styled.div`
   background: #666666;
   margin-top: 20px; margin-bottom: 20px;
 `
-class CommentPost extends React.Component{
-  render() {
-    return (
-      <div>
-        <CommentHeader>
-          <img src={CommentImg} style={{"width": "25px"}}/>
-          <CommentTitle>댓글쓰기</CommentTitle>
-        </CommentHeader>
-        <CommentBox>
-          <User>김수아</User>
-          <form>
-            <CommentInput/>
-            <div style={{"display": "flex", "justify-content": "flex-end", "width": "900px"}}>
-              <RegisterBtn>등록</RegisterBtn>
-            </div>
-          </form>
-        </CommentBox>
-        <MiddleBar/>
-      </div>
-    );
-  }
-}
 
 export default CommentPost;
