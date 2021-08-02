@@ -20,19 +20,19 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Switch>
-          <Route exact path="/front-end" component={MainPage}/>
-          <Route exact path="/front-end/study" component={Study}/>
-          <Route exact path="/front-end/study/rank" component={TotalRank} />
-          <Route exact path='/front-end/study/total' component={TotalStudy} />
-          <Route exact path="/front-end/tech" component={TechJob}/>
-          <Route exact path='/front-end/tech/postView/:no' component={TechDetail} />
-          <Route exact path="/front-end/qna" component={Qna}/>
-          <Route exact path='/front-end/qna/postView/:no' component={QnaDetail} />
-          <Route exact path="/front-end/community" component={Community}/>
-          <Route exact path='/front-end/community/postView/:no' component={CommunityDetail} />
-          <Route path="/front-end/post" component={Post} />
-          <Route path="/front-end/signup" component={Signup}/>
-          <Route path="/front-end/mypage" component={Mypage}/>
+          <Route exact path="/front-end/" component={MainPage}/>
+          <Route exact path="/study" component={Study}/>
+          <Route exact path="/study/rank" component={TotalRank} />
+          <Route exact path='/study/total' component={TotalStudy} />
+          <Route exact path="/tech" component={TechJob}/>
+          <Route exact path='/tech/postView/:no' component={TechDetail} />
+          <Route exact path="/qna" component={Qna}/>
+          <Route exact path='/qna/postView/:no' component={QnaDetail} />
+          <Route exact path="/community" component={Community}/>
+          <Route exact path='/community/postView/:no' component={CommunityDetail} />
+          <Route path="/post" component={Post} />
+          <Route path="/signup" component={Signup}/>
+          <Route path="/mypage" component={Mypage}/>
         </Switch>
       </BrowserRouter>
     </div>
