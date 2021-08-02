@@ -8,8 +8,51 @@ import viewImg from "../assets/view.svg";
 import userImg from "../assets/user.svg";
 import axios from "axios";
 
+const postList = [
+    {
+        "userName": "2",
+        "commitCount": 1400,
+        "rank": 1
+    },
+    {
+        "userName": "4",
+        "commitCount": 1200,
+        "rank": 2
+    },
+    {
+        "userName": "5",
+        "commitCount": 732,
+        "rank": 3
+    },
+    {
+        "userName": "dotsi2",
+        "commitCount": 110,
+        "rank": 4
+    },
+    {
+        "userName": "ttt",
+        "commitCount": 52,
+        "rank": 5
+    },
+    {
+        "userName": "1",
+        "commitCount": 12,
+        "rank": 6
+    },
+    {
+        "userName": "3",
+        "commitCount": 9,
+        "rank": 7
+    },
+    {
+        "userName": "dotsi",
+        "commitCount": 0,
+        "rank": 8
+    }
+]
+
 function Board({type, path}) {
-  const [postList, setPostList] = useState();
+  {/*const [postList, setPostList] = useState();
   useEffect(async() => {
     try {
       const posts = await axios.get(path);
@@ -17,7 +60,7 @@ function Board({type, path}) {
     }catch(e) {
       console.log(e);
     }
-  }, []);
+  }, []);*/}
   return (
     <div>
       <table>
