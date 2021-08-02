@@ -1,17 +1,19 @@
 import React, {useState, useEffect} from "react";
 import styled from "styled-components";
-import SideLogin from "../component/sideLogin";
-import SubBar from '../component/subBar';
-import Board from '../component/board';
-import Pagination from '../component/pagination';
+import SideLogin from "../Component/sideLogin";
+import SubBar from '../Component/subBar';
+import Board from '../Component/board';
+import Pagination from '../Component/pagination';
 import axios from "axios";
+
+const pageNum = 3;
 
 function QnaList() {
     const [page, setPage] = useState(1);
     const handlePageChange = (page) => {
         setPage(page);
     };
-    const [pageNum, setPageNum] = useState();
+    {/*const [pageNum, setPageNum] = useState();
     useEffect(async () => {
         try {
             const response = await axios.get(`http://localhost:8080/api/qna/list/total/count`);
@@ -19,7 +21,7 @@ function QnaList() {
         } catch (e) {
             console.log(e)
         }
-    }, [])
+    }, [])*/}
     const [sort, setSort] = useState('createdAt,DESC');
     const [search, setSearch] = useState('');
     return (

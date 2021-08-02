@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import '../style/Post.css';
 import styled from "styled-components";
-import SideLogin from "../component/sideLogin";
+import SideLogin from "../Component/sideLogin";
 import axios from "axios";
 
 function Post() {
