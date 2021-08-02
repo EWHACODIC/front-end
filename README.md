@@ -66,7 +66,7 @@
     └── index.js
 ├── .gitignore
 ├── package.json
-├── pacakge-lock.json
+└── pacakge-lock.json
 ```
 
 ## 📚 Tech Stack
