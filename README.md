@@ -17,12 +17,12 @@
 ## 📚 Directory Structure
 
 ```
- 📁 **front-end**
-├── **public**
+ 📁 front-end
+├── public
     ├── index.html
     └── robots.txt
-├── **src**
-    ├── **component**
+├── src
+    ├── component
         ├── Header.js
         ├── Login.js
         ├── StudyDom.js
@@ -36,8 +36,8 @@
         ├── sideLogin.js
         ├── studyCard.js
         └── sutBar.js
-    ├── **assets**
-    ├── **pages**
+    ├── assets
+    ├── pages
         ├── CommunityDetail.js
         ├── CommunityList.js
         ├── MainPage.js
@@ -52,7 +52,7 @@
         ├── TechList.js
         ├── TotalRank.js
         └── TotalStudy.js
-    ├── **style**
+    ├── style
         ├── App.css
         ├── MainPage.css
         ├── MakeStudy.css
