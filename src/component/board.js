@@ -10,44 +10,31 @@ import axios from "axios";
 
 const postList = [
     {
-        "userName": "2",
-        "commitCount": 1400,
-        "rank": 1
+        "id": 17,
+        "title": "제목",
+        "tag": [
+            "unity"
+        ],
+        "view": 15,
+        "recommend": 16,
+        "commentCount": 9,
+        "userCode": "1234",
+        "createDate": "2021-07-10T16:25:38",
+        "modifiedDate": "2021-08-01T14:24:54"
     },
     {
-        "userName": "4",
-        "commitCount": 1200,
-        "rank": 2
-    },
-    {
-        "userName": "5",
-        "commitCount": 732,
-        "rank": 3
-    },
-    {
-        "userName": "dotsi2",
-        "commitCount": 110,
-        "rank": 4
-    },
-    {
-        "userName": "ttt",
-        "commitCount": 52,
-        "rank": 5
-    },
-    {
-        "userName": "1",
-        "commitCount": 12,
-        "rank": 6
-    },
-    {
-        "userName": "3",
-        "commitCount": 9,
-        "rank": 7
-    },
-    {
-        "userName": "dotsi",
-        "commitCount": 0,
-        "rank": 8
+        "id": 78,
+        "title": "제목제목제목",
+        "tag": [
+            "React",
+            "Spring"
+        ],
+        "view": 11,
+        "recommend": 0,
+        "commentCount": 0,
+        "userCode": "1234",
+        "createDate": "2021-08-01T14:23:52",
+        "modifiedDate": "2021-08-01T14:23:52"
     }
 ]
 
