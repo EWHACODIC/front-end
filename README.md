@@ -77,7 +77,7 @@
 
 **🔍 Library**
 
-`style-components`
-`react-dom`
-`react-hook-form`
-`react-js-pagination`
+- `style-components`
+- `react-dom`
+- `react-hook-form`
+- `react-js-pagination`
