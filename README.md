@@ -10,9 +10,9 @@
 
 |  <center>Member</center> |  <center>Work</center> |
 |:--------|:--------:|
-|<center>[김수아](https://github.com/sua-kim)</center>| 게시판 목록 및 상세페이지, 새글쓰기, 스터디페이지(모각코/랭킹) |
-|<center>[김은지](https://github.com/KSilverJi)</center> | 메인 페이지, 로그인, 회원가입 및 마이페이지, 스터디 모집 페이지 |
-|<center>[김혜린](https://github.com/graygra16)</center> | Header 컴포넌트, footer  |
+|[김수아](https://github.com/sua-kim)| 게시판 목록 및 상세페이지, 새글쓰기, 스터디페이지(모각코/랭킹) |
+|[김은지](https://github.com/KSilverJi) | 메인 페이지, 로그인, 회원가입 및 마이페이지, 스터디 모집 페이지 |
+|[김혜린](https://github.com/graygra16) | Header 컴포넌트, footer  |
 
 ## 📚 Directory Structure
 
