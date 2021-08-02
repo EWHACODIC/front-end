@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import styled from "styled-components";
-import LoginBox from '../Component/Login';
-import RankCard from "../Component/rankCard";
+import LoginBox from '../component/Login';
+import RankCard from "../component/rankCard";
 import axios from "axios";
 
 const totalRank = [

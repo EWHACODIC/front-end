@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import styled from "styled-components";
 import '../style/Signup.css';
-import Login from '../Component/Login';
+import Login from '../component/Login';
 axios.defaults.baseURL = "http://localhost:8080";
 
 const Wrapper = styled.div`

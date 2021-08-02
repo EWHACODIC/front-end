@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import styled from "styled-components";
-import StudyCard from "../Component/studyCard"
+import StudyCard from "../component/studyCard"
 import axios from "axios";
 
 const totalStudy = [

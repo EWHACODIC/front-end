@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from "react";
 import styled from "styled-components";
-import LoginBox from '../Component/Login';
-import RankCard from "../Component/rankCard";
-import StudyCard from "../Component/studyCard"
+import LoginBox from '../component/Login';
+import RankCard from "../component/rankCard";
+import StudyCard from "../component/studyCard"
 import axios from "axios";
 import {Link} from "react-router-dom";
 

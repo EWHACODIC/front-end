@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import LoginBox from "../component/Login";
+import LoginBox from "./Login";
 import axios from "axios";
 
 function SideLogin() {

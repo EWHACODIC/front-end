@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import '../style/Signup.css';
-import Login from '../Component/Login';
+import Login from '../component/Login';
 import axios from "axios";
 axios.defaults.baseURL = "http://34.64.231.193";
 

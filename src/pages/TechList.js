@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from "react";
 import styled from "styled-components";
-import SideLogin from "../Component/sideLogin";
-import SubBar from '../Component/subBar';
-import Board from '../Component/board';
-import Pagination from '../Component/pagination';
+import SideLogin from "../component/sideLogin";
+import SubBar from '../component/subBar';
+import Board from '../component/board';
+import Pagination from '../component/pagination';
 import axios from "axios";
 
 const pageNum = 3;
