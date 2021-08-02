@@ -1,26 +1,79 @@
-![image](https://user-images.githubusercontent.com/78336351/126066698-59b535c7-78cd-431e-b302-1011bf0dd5cb.png)
+# EWHA CODIC - FRONT
 
-### EWHA CODIC FRONT
+> 이화인들을 위한 **개발 커뮤니티** 제작
 
-### 1. 대시보드
+## 📚 Our Team
+
+|  <center>Member</center> |  <center>Work</center> |
+|:--------|:--------:|
+|<center>[김수아](https://github.com/sua-kim)</center>| 게시판 목록 및 상세페이지, 새글쓰기, 스터디페이지(모각코/랭킹) |
+|<center>[김은지](https://github.com/KSilverJi)</center> | 메인 페이지, 로그인, 회원가입 및 마이페이지, 스터디 모집 페이지 |
+|<center>[김혜린](https://github.com/graygra16)</center> | Header 컴포넌트, footer  |
+
+## 📚 Directory Structure
 
 ```
-front-end
-ㄴ public
-ㄴ src
-  ㄴ assets
-  ㄴ component
-  ㄴ pages
-  ㄴ style
+ 📁 **front-end**
+├── **public**
+    ├── index.html
+    └── robots.txt
+├── **src**
+    ├── **component**
+        ├── Header.js
+        ├── Login.js
+        ├── StudyDom.js
+        ├── StudyPopup.js
+        ├── board.js
+        ├── commentList.js
+        ├── commentPost.js
+        ├── pagination.js
+        ├── postDetail.js
+        ├── rankCard.js
+        ├── sideLogin.js
+        ├── studyCard.js
+        └── sutBar.js
+    ├── **assets**
+    ├── **pages**
+        ├── CommunityDetail.js
+        ├── CommunityList.js
+        ├── MainPage.js
+        ├── MakeStudy.js
+        ├── Mypage.js
+        ├── Post.js
+        ├── QnaDetail.js
+        ├── QnaList.js
+        ├── Signup.js
+        ├── Study.js
+        ├── TechDetail.js
+        ├── TechList.js
+        ├── TotalRank.js
+        └── TotalStudy.js
+    ├── **style**
+        ├── App.css
+        ├── MainPage.css
+        ├── MakeStudy.css
+        ├── Post.css
+        ├── Signup.css
+        ├── StudyPopup.css
+        ├── board.css
+        ├── pagination.css
+        └── postDetail.css
+    ├── App.js
+    └── index.js
+├── .gitignore
+├── package.json
+├── pacakge-lock.json
 ```
 
-### 2. 선택한 기술 스택 및 라이브러리
+## 📚 Tech Stack
 
-[![React](https://img.shields.io/badge/React-61DAFB?style=round-square&logo=React&logoColor=black)](https://ko.reactjs.org/)
+**🔍 Framework**
 
-### 3. 팀원 소개와 역할 분담
+  [![React](https://img.shields.io/badge/React-61DAFB?style=round-square&logo=React&logoColor=black)](https://ko.reactjs.org/)
 
-- [김수아](https://github.com/sua-kim) - 게시판 목록 및 상세페이지, 스터디 화면, 모각코, 랭킹 구현
-- [김은지](https://github.com/KSilverJi) - 회원가입 및 마이페이지, 로그인, 메인페이지, 스터디 모집 구현
-- [김혜린](https://github.com/graygra16) - header, footer구현
+**🔍 Library**
 
+- `style-components`
+- `react-dom`
+- `react-hook-form`
+- `react-js-pagination`
