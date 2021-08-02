@@ -7,6 +7,22 @@ import heartImg from "../assets/heart.svg";
 import viewImg from "../assets/view.svg";
 import UserGrayImg from "../assets/userGray.svg";
 
+const post = {
+  "id": 78,
+  "title": "제목제목제목",
+  "tag": [
+    "React",
+    "Spring"
+  ],
+  "view": 11,
+  "recommend": 0,
+  "commentCount": 0,
+  "userCode": 1234,
+  "createDate": "2021-08-01T14:23:52",
+  "content": "내용내용",
+  "modifiedDate": "2021-08-01T14:23:52"
+}
+
 function PostDetail({path})  {
   const [isLike, setLike] = useState(false);
   function handleLikeChange() {
@@ -16,7 +32,7 @@ function PostDetail({path})  {
       setLike(false)
     }
   }
-  const [post, setPost] = useState();
+  {/*const [post, setPost] = useState();
   useEffect(async() => {
     try {
       const response = await axios.get(path);
@@ -24,7 +40,7 @@ function PostDetail({path})  {
     } catch(e) {
       console.log(e);
     }
-  }, []);
+  }, []);*/}
   //const [color, setColor] = useState({
   //  data:[],
   //  isLike: "#C4C4C4",
