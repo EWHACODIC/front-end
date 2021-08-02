@@ -3,6 +3,8 @@
 > 이화인들을 위한 **개발 커뮤니티** 제작
 
 
+![image](https://user-images.githubusercontent.com/58056141/127864300-86def84e-d746-4c64-bf8b-4e18660c8868.png)
+
 
 ## 📚 Our Team
 
