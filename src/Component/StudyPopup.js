@@ -18,13 +18,12 @@ const studyDetail = {
   "startAt": "2021-08-12",
   "endAt": "2021-09-11",
   "createdAt": "2021-07-30T22:49:31",
-  "userCode": 1234,
-  "userId": 'codic1234',
+  "userCode": "1234",
   "title": "모각코모각코모각코",
   "description": "안녕하세요 여름 방학동안 같이 코딩 공부할 스터디 구합니다!"
 }
 
-function StudyPopup(props) {
+{/*function StudyPopup(props) {
   const [studyDetail, setStudyDetail] = useState();
   useEffect(async () => {
     try {
@@ -91,6 +90,83 @@ function StudyPopup(props) {
         </Layer>
       ):''}
     </div>
+
+  );
+}*/}
+
+function StudyPopup(props) {
+  return (
+      <div>
+        {studyDetail ? (
+            <Layer>
+              <Layer>
+                <AlertPopup>
+                  <StudyTop>
+                    <div style={{'width': '90%', 'font-size': '20px', 'padding': '10px'}}>{studyDetail.title}</div>
+                    <CloseBtn onClick={props.onClose}>×</CloseBtn>
+                  </StudyTop>
+                  <StudyContent>
+                    <UserInfo>
+                      <UserImg/>
+                      <UserID>ID
+                        : {studyDetail.userCode.substring(0, 2) + '*'.repeat(studyDetail.userCode.length - 2)}</UserID>
+                      <CreateDate>
+                        <LineBreak
+                            style={{'margin-left': '15px'}}>{studyDetail.createdAt.split('T')[0].replace(/-/gi, ' ')}</LineBreak>
+                        <LineBreak>{studyDetail.createdAt.split('T')[1]} 작성</LineBreak>
+                      </CreateDate>
+                    </UserInfo>
+                    <MiddleLine/>
+                    <StudyInfo>
+                      <StudyDescription>
+                        <img src={person} style={{'margin-right': '5px'}}/> 모집 인원
+                        <p style={{
+                          'display': 'inline-flex',
+                          'margin-left': '15px'
+                        }}>{studyDetail.curPpl} / {studyDetail.maxPpl}</p> 명
+                      </StudyDescription>
+                      <StudyDescription>
+                        <img src={clock} style={{'margin-right': '5px'}}/> 목표 시간
+                        <p style={{'display': 'inline-flex', 'margin-left': '15px'}}>{studyDetail.time}</p> 시간
+                      </StudyDescription>
+                    </StudyInfo>
+                    <StudyInfo>
+                      <StudyDescription>
+                        <img src={calendar} style={{'margin-right': '5px', 'margin-left': '2px'}}/> 활동 기간
+                        <p style={{
+                          'display': 'inline-flex',
+                          'margin-left': '15px',
+                          'font-size': '12px'
+                        }}>{studyDetail.startAt} ~ {studyDetail.endAt}</p>
+                      </StudyDescription>
+                      <StudyDescription>
+                        <img src={check} style={{'margin-right': '5px', 'width': '15px', 'margin-left': '2px'}}/> 스터디 유형
+                        <p style={{
+                          'display': 'inline-flex',
+                          'margin-left': '15px'
+                        }}>{studyDetail.studyType === 'ONLINE' ? <StudyType background={'#F28095'}>ONline</StudyType> :
+                            <StudyType background={'#2D7EF8'}>OFFline</StudyType>}</p>
+                      </StudyDescription>
+                    </StudyInfo>
+                    <StudyInfo>
+                      <StudyDescription style={{'width': '90%', 'align-items': 'flex-start'}}>
+                        <img src={note} style={{'margin-right': '5px', 'width': '20px'}}/> 상세 내용
+                        <p style={{
+                          'display': 'inline-flex',
+                          'margin-left': '15px',
+                          'font-size': '12px'
+                        }}>{studyDetail.description}</p>
+                      </StudyDescription>
+                    </StudyInfo>
+                    <StudyInfo>
+                      <RegisterBtn>스터디 참가</RegisterBtn>
+                    </StudyInfo>
+                  </StudyContent>
+                </AlertPopup>
+              </Layer>
+            </Layer>
+        ) : ''}
+      </div>
 
   );
 }

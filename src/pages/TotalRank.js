@@ -1,12 +1,55 @@
 import React, {useState, useEffect} from "react";
 import styled from "styled-components";
-import LoginBox from '../component/Login';
-import RankCard from "../component/rankCard";
+import LoginBox from '../Component/Login';
+import RankCard from "../Component/rankCard";
 import axios from "axios";
+
+const totalRank = [
+  {
+    "userName": "2",
+    "commitCount": 1400,
+    "rank": 1
+  },
+  {
+    "userName": "4",
+    "commitCount": 1200,
+    "rank": 2
+  },
+  {
+    "userName": "5",
+    "commitCount": 732,
+    "rank": 3
+  },
+  {
+    "userName": "dotsi2",
+    "commitCount": 110,
+    "rank": 4
+  },
+  {
+    "userName": "ttt",
+    "commitCount": 52,
+    "rank": 5
+  },
+  {
+    "userName": "1",
+    "commitCount": 12,
+    "rank": 6
+  },
+  {
+    "userName": "3",
+    "commitCount": 9,
+    "rank": 7
+  },
+  {
+    "userName": "dotsi",
+    "commitCount": 0,
+    "rank": 8
+  }
+]
 
 function TotalRank() {
   const colorList = ['#48A560', '#63B779', '#7EC18F', '#B1D8BB', '#CEE3D4'];
-  const [user, setUser] = useState(1234);
+  {/*const [user, setUser] = useState(1234);
   const [totalRank, setTotalRank] = useState();
   useEffect(async () => {
     try {
@@ -16,7 +59,7 @@ function TotalRank() {
     }catch(e) {
       console.log(e);
     }
-  }, []);
+  }, []);*/}
   return (
     <div>
       <div style={{'display': 'flex'}}>
@@ -32,7 +75,7 @@ function TotalRank() {
             <RankTitle>전체 Github 랭킹</RankTitle>
           </div>
           <div style={{'display': 'inline-flex', 'flex-wrap': 'wrap', 'width':'1000px'}}>
-            { totalRank ?.map((rankInfo, i) => {
+            { totalRank ? totalRank.map((rankInfo, i) => {
               if (i<5) {
                 return(
                   <RankComponent>
@@ -45,7 +88,7 @@ function TotalRank() {
                     <RankCard color={colorList[4]} rank={rankInfo.rank} user={rankInfo.userName} />
                   </RankComponent>
                 );}
-            })()}
+            }):''}
             <Circle color={'#228B52'} />
             <Circle color={'#48A560'} />
             <Circle color={'#B1D8BB'} />

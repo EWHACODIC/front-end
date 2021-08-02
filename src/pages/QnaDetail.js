@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import SideLogin from '../component/sideLogin';
-import PostDetail from '../component/postDetail';
-import CommentList from '../component/commentList';
-import CommentPost from "../component/commentPost";
+import SideLogin from '../Component/sideLogin';
+import PostDetail from '../Component/postDetail';
+import CommentList from '../Component/commentList';
+import CommentPost from "../Component/commentPost";
 
 function QnaDetail({match}) {
     const {no} = match.params;

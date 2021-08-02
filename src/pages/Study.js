@@ -1,20 +1,150 @@
 import React, {useState, useEffect} from "react";
 import styled from "styled-components";
-import LoginBox from '../component/Login';
-import RankCard from "../component/rankCard";
-import StudyCard from "../component/studyCard"
+import LoginBox from '../Component/Login';
+import RankCard from "../Component/rankCard";
+import StudyCard from "../Component/studyCard"
 import axios from "axios";
 import {Link} from "react-router-dom";
+
+const rankList = [
+  {
+    "userName": "2",
+    "commitCount": 1400,
+    "rank": 1
+  },
+  {
+    "userName": "4",
+    "commitCount": 1200,
+    "rank": 2
+  },
+  {
+    "userName": "5",
+    "commitCount": 732,
+    "rank": 3
+  },
+  {
+    "userName": "dotsi2",
+    "commitCount": 110,
+    "rank": 4
+  },
+  {
+    "userName": "ttt",
+    "commitCount": 52,
+    "rank": 5
+  },
+  {
+    "userName": "1",
+    "commitCount": 12,
+    "rank": 6
+  },
+  {
+    "userName": "3",
+    "commitCount": 9,
+    "rank": 7
+  },
+  {
+    "userName": "dotsi",
+    "commitCount": 0,
+    "rank": 8
+  }
+]
+
+const recentStudy = [{
+  "id": 43,
+  "title": "제목",
+  "maxPpl": 11,
+  "curPpl": 5,
+  "time": 23,
+  "password": 1234,
+  "studyType": "ONLINE",
+  "startAt": "2021-08-12",
+  "endAt": "2021-09-11",
+  "createdAt": "2021-07-30T22:30:27",
+  "userCode": "1234",
+  "description": "모각코모각코모각코"
+},
+  {
+    "id": 42,
+    "title": "제목",
+    "maxPpl": 11,
+    "curPpl": 5,
+    "time": 23,
+    "password": 1234,
+    "studyType": "OFFLINE",
+    "startAt": "2021-08-12",
+    "endAt": "2021-09-11",
+    "createdAt": "2021-07-30T22:29:43",
+    "userCode": "1234",
+    "description": "모각코모각코모각코"
+  },
+  {
+    "id": 41,
+    "title": "제목",
+    "maxPpl": 12,
+    "curPpl": 3,
+    "time": 23,
+    "password": 1234,
+    "studyType": "ONLINE",
+    "startAt": "2021-07-12",
+    "endAt": "2021-09-24",
+    "createdAt": "2021-07-30T21:38:45",
+    "userCode": "1234",
+    "description": "공부공부공부공부공부~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+  },
+  {
+    "id": 40,
+    "title": "제목",
+    "maxPpl": 12,
+    "curPpl": 3,
+    "time": 23,
+    "password": 1234,
+    "studyType": "OFFLINE",
+    "startAt": "2021-07-12",
+    "endAt": "2021-08-12",
+    "createdAt": "2021-07-30T21:30:44",
+    "userCode": "1234",
+    "description": "공부공부공부공부공부~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+  },
+  {
+    "id": 37,
+    "title": "제목",
+    "maxPpl": 11,
+    "curPpl": 5,
+    "time": 23,
+    "password": 1234,
+    "studyType": "ONLINE",
+    "startAt": "2021-07-12",
+    "endAt": "2021-07-29",
+    "createdAt": "2021-07-29T22:34:31",
+    "userCode": "1234",
+    "description": "study"
+  },
+  {
+    "id": 36,
+    "title": "제목",
+    "maxPpl": 10,
+    "curPpl": 3,
+    "time": 24,
+    "password": 1234,
+    "studyType": "ONLINE",
+    "startAt": "2021-07-13",
+    "endAt": "2021-07-31",
+    "createdAt": "2021-07-29T22:33:29",
+    "userCode": "1234",
+    "description": "study"
+  }
+]
 
 function Study() {
   const colorList = ['#48A560', '#63B779', '#7EC18F', '#B1D8BB', '#CEE3D4'];
   const [user, setUser] = useState(1234);
-  const [rankList, setRankList] = useState();
+  {/*const [rankList, setRankList] = useState();
   const [recentStudy, setRecentStudy] = useState();
   useEffect(async () => {
     try {
       const response = await axios.get(`http://localhost:8080/api/rank`);
       setRankList(response.data);
+      console.log(rankList);
     }catch(e) {
       console.log(e);
     }
@@ -23,10 +153,11 @@ function Study() {
     try {
       const data = await axios.get(`http://localhost:8080/api/study/list/recent`);
       setRecentStudy(data.data);
+      console.log(recentStudy);
     }catch(e) {
       console.log(e);
     }
-  }, []);
+  }, []); */}
 
   return (
     <div>
