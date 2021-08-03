@@ -1,4 +1,4 @@
-# EWHA CODIC - FRONT
+# EWHA CODIC - FRONTEND
 
 > 이화인들을 위한 **개발 커뮤니티** 제작
 
